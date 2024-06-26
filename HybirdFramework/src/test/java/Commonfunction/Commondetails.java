@@ -103,7 +103,6 @@ public class Commondetails {
 			String screenshotPath = Helper.getskipScreenshot(driver, result.getTestName());
 			test.log(Status.SKIP, "Test Skiped: Screenshot capture",
 					MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
-
 		}
 		extentReports.flush();
 	}
