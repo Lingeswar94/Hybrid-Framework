@@ -31,7 +31,7 @@ public class PaymentTC extends Commondetails {
 		page.selectCountry();
 		page.checkbox();
 		page.paymentcontinue();
-
+		extentReports.flush();
 	
 
 	}

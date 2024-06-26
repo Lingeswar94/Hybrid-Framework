@@ -17,6 +17,6 @@ public class ThanksTC extends Commondetails {
 		ThanksPage thanksPage = PageFactory.initElements(driver, ThanksPage.class);
 		
 		thanksPage.exit();
-	
+		extentReports.flush();
 	}
 }

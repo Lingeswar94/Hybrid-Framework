@@ -3,33 +3,11 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="Testcase.PassengerTC">
+      <class name="Testcase.SearchTC">
         <methods>
-          <include name="Excelstringdata"/>
-          <include name="tearDownReport"/>
           <include name="teardown"/>
-          <include name="ChooseBrowser"/>
-          <include name="Passengerdetails"/>
         </methods>
-      </class> <!-- Testcase.PassengerTC -->
-      <class name="Testcase.FlightresultTC">
-        <methods>
-          <include name="Excelstringdata"/>
-          <include name="tearDownReport"/>
-          <include name="teardown"/>
-          <include name="ChooseBrowser"/>
-          <include name="Flightresult"/>
-        </methods>
-      </class> <!-- Testcase.FlightresultTC -->
-      <class name="Testcase.PaymentTC">
-        <methods>
-          <include name="Excelstringdata"/>
-          <include name="Paymentcase"/>
-          <include name="tearDownReport"/>
-          <include name="teardown"/>
-          <include name="ChooseBrowser"/>
-        </methods>
-      </class> <!-- Testcase.PaymentTC -->
+      </class> <!-- Testcase.SearchTC -->
       <class name="Testcase.ThanksTC">
         <methods>
           <include name="Excelstringdata"/>
@@ -39,15 +17,6 @@
           <include name="ChooseBrowser"/>
         </methods>
       </class> <!-- Testcase.ThanksTC -->
-      <class name="Testcase.AddonTC">
-        <methods>
-          <include name="Excelstringdata"/>
-          <include name="Addoncase"/>
-          <include name="tearDownReport"/>
-          <include name="teardown"/>
-          <include name="ChooseBrowser"/>
-        </methods>
-      </class> <!-- Testcase.AddonTC -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

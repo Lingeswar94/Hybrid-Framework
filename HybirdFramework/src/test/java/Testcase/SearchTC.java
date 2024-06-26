@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 
@@ -40,5 +41,8 @@ public class SearchTC extends Commondetails {
 		page.childpax(exceldata.getstringdata("Sheet1", 8, 1));
 		page.infantpax(exceldata.getstringdata("Sheet1", 9, 1));
 		page.Searchbutton();
+		extentReports.flush();
 	}
+	
+	
 }

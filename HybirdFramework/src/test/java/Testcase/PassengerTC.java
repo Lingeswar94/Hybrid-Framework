@@ -39,5 +39,6 @@ public class PassengerTC extends Commondetails {
 				exceldata.getstringdata("Sheet2", 23, 1), exceldata.getstringdata("Sheet2", 24, 1),
 				exceldata.getstringdata("Sheet2", 25, 1));
 		page.Passengercontinue();
+		extentReports.flush();
 	}
 }

@@ -54,7 +54,7 @@ public class Commondetails {
 		String url = properties.getProperty("URL");
 		String browser = properties.getProperty("Browser");
 		if (browser.equalsIgnoreCase("Chrome")) {
-			// WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().setup();
 			// System.setProperty("webdriver.driver.chrome",
 			// properties.getProperty("Path"));
 			driver = new ChromeDriver();
@@ -66,7 +66,7 @@ public class Commondetails {
 		driver.navigate().to(url);
 		driver.manage().window().maximize();
 		// driver.navigate().refresh();
-		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 
 	@BeforeMethod
@@ -84,9 +84,9 @@ public class Commondetails {
 
 	}
 
-	@AfterMethod
+	@AfterSuite
 	public void teardown(ITestResult result) throws IOException, AWTException {
-
+		
 		if (result.getStatus() == ITestResult.SUCCESS) {
 			String screenshotPath = Helper.getscreenshotcapture(driver, result.getTestName());
 			test.log(Status.PASS, "Test Passed: Screenshot capture",
@@ -107,11 +107,11 @@ public class Commondetails {
 		}
 		extentReports.flush();
 	}
-
+	
 	@AfterSuite
 	public void tearDownReport() {
 
 		driver.quit();
-
+		
 	}
 }

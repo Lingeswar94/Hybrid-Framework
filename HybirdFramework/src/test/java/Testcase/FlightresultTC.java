@@ -31,5 +31,6 @@ public class FlightresultTC extends Commondetails {
 		page.Fareselecting(exceldata.getstringdata("Sheet1", 11, 1));
 		page.FlightContiune();
 		test.pass("Redirect to Passenger page");
+		extentReports.flush();
 	}
 }

@@ -16,6 +16,6 @@ public class AddonTC extends Commondetails {
 	test=extentReports.createTest("Verify to AddonPage");
 			AddonPage Page = PageFactory.initElements(driver, AddonPage.class);
 			Page.AddonContinuebutton();
-	
+			extentReports.flush();
 		}
 }
