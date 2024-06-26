@@ -84,7 +84,7 @@ public class Commondetails {
 
 	}
 
-	@AfterSuite
+	@AfterMethod
 	public void teardown(ITestResult result) throws IOException, AWTException {
 		
 		if (result.getStatus() == ITestResult.SUCCESS) {
