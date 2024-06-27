@@ -58,7 +58,7 @@ public class Commondetails {
 			// System.setProperty("webdriver.driver.chrome",
 			// properties.getProperty("Path"));
 			driver = new ChromeDriver();
-
+			
 		} else {
 			System.out.println("Not ");
 		}
