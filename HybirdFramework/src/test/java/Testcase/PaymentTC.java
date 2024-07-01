@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import Commonfunction.Commondetails;
@@ -12,11 +13,11 @@ import Commonfunction.Exceldata;
 import TestPage.PaymentPage;
 
 public class PaymentTC extends Commondetails {
-	Exceldata exceldata;
+	
 
 	@Test
 	public void Paymentcase() throws IOException {
-			test=extentReports.createTest("Verify to PaymentPage");
+	//	test = extentReports.createTest("Verify to PaymentPage");
 		exceldata = new Exceldata();
 		PaymentPage page = PageFactory.initElements(driver, PaymentPage.class);
 
@@ -31,8 +32,7 @@ public class PaymentTC extends Commondetails {
 		page.selectCountry();
 		page.checkbox();
 		page.paymentcontinue();
-		extentReports.flush();
-	
+		//extentReports.flush();
 
 	}
 }

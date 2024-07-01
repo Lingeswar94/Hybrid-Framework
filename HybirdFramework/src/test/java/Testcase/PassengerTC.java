@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import Commonfunction.Commondetails;
@@ -17,11 +18,11 @@ import Commonfunction.Exceldata;
 import TestPage.PassengerPage;
 
 public class PassengerTC extends Commondetails {
-
+	
 	@Test
 	public void Passengerdetails() throws IOException {
 		
-		test=extentReports.createTest("Verify to PassengerPage");
+		//test=extentReports.createTest("Verify to PassengerPage");
 		Exceldata exceldata = new Exceldata();
 		PassengerPage page = PageFactory.initElements(driver, PassengerPage.class);
 
@@ -39,6 +40,6 @@ public class PassengerTC extends Commondetails {
 				exceldata.getstringdata("Sheet2", 23, 1), exceldata.getstringdata("Sheet2", 24, 1),
 				exceldata.getstringdata("Sheet2", 25, 1));
 		page.Passengercontinue();
-		extentReports.flush();
+		
 	}
 }

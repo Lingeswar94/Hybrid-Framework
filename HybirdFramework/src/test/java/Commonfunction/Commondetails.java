@@ -35,9 +35,11 @@ public class Commondetails {
 	public static Properties properties;
 	public static WebDriver driver;
 	public static Exceldata exceldata;
-	public static ExtentSparkReporter Reporter;
-	public static ExtentReports extentReports;
-	public static ExtentTest test;
+	/*
+	 * public static ExtentReports extentReports; public static ExtentReportdata
+	 * extentReportdata; public static ExtentSparkReporter Reporter; public static
+	 * ExtentTest test;
+	 */
 
 	public Properties loadbrowser() throws IOException {
 		FileInputStream fileInputStream = new FileInputStream("./Config/config.properties");
@@ -58,7 +60,7 @@ public class Commondetails {
 			// System.setProperty("webdriver.driver.chrome",
 			// properties.getProperty("Path"));
 			driver = new ChromeDriver();
-			
+
 		} else {
 			System.out.println("Not ");
 		}
@@ -70,43 +72,57 @@ public class Commondetails {
 	}
 
 	@BeforeMethod
-	public void Excelstringdata() throws IOException {
-
-		exceldata = new Exceldata();
-		Reporter = new ExtentSparkReporter(
-				new String(System.getProperty("user.dir") + "/Reports/FCProject " + Helper.getCurrenttime() + ".html"));
-		Reporter.config().setDocumentTitle("Automation Test Report");
-		Reporter.config().setReportName("FC Normal Flow Project");
-		Reporter.config().setTheme(Theme.DARK);
-		extentReports = new ExtentReports();
-		extentReports.attachReporter(Reporter);
-		extentReports.setSystemInfo("Environment", "QA");
-
-	}
-
-	@AfterMethod
-	public void teardown(ITestResult result) throws IOException, AWTException {
-		
-		if (result.getStatus() == ITestResult.SUCCESS) {
-			String screenshotPath = Helper.getscreenshotcapture(driver, result.getTestName());
-			test.log(Status.PASS, "Test Passed: Screenshot capture",
-					MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
-
-		} else if (result.getStatus() == ITestResult.FAILURE) {
-
-			String screenshotPath = Helper.getFailscreenshot(driver, result.getTestName());
-			test.log(Status.FAIL, "Test Failed: Screenshot capture",
-					MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
-
-		} else if (result.getStatus() == ITestResult.SKIP) {
-
-			String screenshotPath = Helper.getskipScreenshot(driver, result.getTestName());
-			test.log(Status.SKIP, "Test Skiped: Screenshot capture",
-					MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+	public void excelData() {
+		try {
+			exceldata = new Exceldata();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
 		}
-		extentReports.flush();
+
 	}
-	
+
+	/*
+	 * @BeforeClass public ExtentReports Extentreportdata() {
+	 * 
+	 * Reporter = new ExtentSparkReporter( new String(System.getProperty("user.dir")
+	 * + "/Reports/FCProject " + Helper.getCurrenttime() + ".html"));
+	 * Reporter.config().setDocumentTitle("Automation Test Report");
+	 * Reporter.config().setReportName("FC Normal Flow Project");
+	 * Reporter.config().setTheme(Theme.DARK); extentReports = new ExtentReports();
+	 * extentReports.attachReporter(Reporter);
+	 * extentReports.setSystemInfo("Environment", "QA");
+	 * extentReports.setSystemInfo("Application URL",
+	 * properties.getProperty("URL")); extentReports.setSystemInfo("BRowser Name",
+	 * properties.getProperty("Browser")); return extentReports;
+	 * 
+	 * }
+	 */
+
+	/*
+	 * @AfterMethod public void teardown(ITestResult result) throws IOException,
+	 * AWTException {
+	 * 
+	 * if (result.getStatus() == ITestResult.SUCCESS) { String screenshotPath =
+	 * Helper.getscreenshotcapture(driver, result.getTestName());
+	 * test.log(Status.PASS, "Test Passed: Screenshot capture",
+	 * MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+	 * 
+	 * } else if (result.getStatus() == ITestResult.FAILURE) {
+	 * 
+	 * String screenshotPath = Helper.getFailscreenshot(driver,
+	 * result.getTestName()); test.log(Status.FAIL,
+	 * "Test Failed: Screenshot capture",
+	 * MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+	 * 
+	 * } else if (result.getStatus() == ITestResult.SKIP) {
+	 * 
+	 * String screenshotPath = Helper.getskipScreenshot(driver,
+	 * result.getTestName()); test.log(Status.SKIP,
+	 * "Test Skiped: Screenshot capture",
+	 * MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build()); }
+	 * extentReports.flush(); }
+	 */
+
 	@AfterSuite
 	public void tearDownReport() {
 
