@@ -54,7 +54,7 @@ public class Commondetails {
 		loadbrowser();
 
 		String url = properties.getProperty("URL");
-		String browser = properties.getProperty("browser");
+		String browser = properties.getProperty("Browser");
 		if (browser.equalsIgnoreCase("Chrome")) {
 			WebDriverManager.chromedriver().setup();
 			// System.setProperty("webdriver.driver.chrome",
