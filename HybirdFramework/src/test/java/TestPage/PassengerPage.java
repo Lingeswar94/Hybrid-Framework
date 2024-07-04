@@ -93,6 +93,7 @@ public class PassengerPage {
 	 * mobileno.sendKeys(mobile); email.sendKeys(mailid);
 	 * confrmemail.sendKeys(conemail); Residential.sendKeys(Res); }
 	 */
+	
 	public void MainPassenger(String Adtitle) {
 		Select select = new Select(PassengerPage.Title);
 		select.selectByValue(Adtitle);

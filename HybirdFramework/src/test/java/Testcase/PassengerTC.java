@@ -40,6 +40,7 @@ public class PassengerTC extends Commondetails {
 		page.adultmail(exceldata.getstringdata("Sheet2", 5, 1));
 		page.adultconmail(exceldata.getstringdata("Sheet2", 6, 1));
 		page.adultRes(exceldata.getstringdata("Sheet2", 7, 1));
+		
 		page.childPassenger(exceldata.getstringdata("Sheet2", 10, 1), exceldata.getstringdata("Sheet2", 11, 1),
 				exceldata.getstringdata("Sheet2", 12, 1), exceldata.getstringdata("Sheet2", 13, 1),
 				exceldata.getstringdata("Sheet2", 14, 1), exceldata.getstringdata("Sheet2", 15, 1),
