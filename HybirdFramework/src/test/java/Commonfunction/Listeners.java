@@ -64,15 +64,15 @@ public static	WebDriver driver;
 	public void onFinish(ITestContext context) {
 		System.out.println("Finised project got executed");
 		extentReports.flush();
-		String extentpath=System.getProperty("user.dir")+"/Reports/FCProject"+Helper.getCurrenttime()+".html";
-		File file=new File(extentpath);
-		
-		try {
-			Desktop.getDesktop().browse(file.toURI());
-		} catch (IOException e) {
-		
-			e.printStackTrace();
-		}
+//		String extentpath=System.getProperty("user.dir")+"/Reports/FCProject"+Helper.getCurrenttime()+".html";
+//		File file=new File(extentpath);
+//		
+//		try {
+//			Desktop.getDesktop().browse(file.toURI());
+//		} catch (IOException e) {
+//		
+//			e.printStackTrace();
+//		}
 	}
 
 }

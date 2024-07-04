@@ -46,28 +46,28 @@ public class RoughNote {
 			System.out.println(e.getMessage());
 		}
 	}
-	public void MainPassenger(String Adtitle) {
-		Select select = new Select(PassengerPage.Title);
-		select.selectByValue(Adtitle);
-	}
-	public void adultPaxfirstname(String fname) {
-		firstname.sendKeys(fname);
-	}
-	public void adultPaxlastname(String lname) {
-		lastname.sendKeys(lname);
-	}
-	public void adultmobileno(String mobile) {
-		mobileno.sendKeys(mobile);
-	}
-	public void adultmail(String mail) {
-		email.sendKeys(mail);
-	}
-	public void adultconmail(String conmail) {
-		confrmemail.sendKeys(conmail);
-	}
-	public void adultRes(String Res) {
-		Residential.sendKeys(Res);
-	}
+//	public void MainPassenger(String Adtitle) {
+//		Select select = new Select(PassengerPage.Title);
+//		select.selectByValue(Adtitle);
+//	}
+//	public void adultPaxfirstname(String fname) {
+//		firstname.sendKeys(fname);
+//	}
+//	public void adultPaxlastname(String lname) {
+//		lastname.sendKeys(lname);
+//	}
+//	public void adultmobileno(String mobile) {
+//		mobileno.sendKeys(mobile);
+//	}
+//	public void adultmail(String mail) {
+//		email.sendKeys(mail);
+//	}
+//	public void adultconmail(String conmail) {
+//		confrmemail.sendKeys(conmail);
+//	}
+//	public void adultRes(String Res) {
+//		Residential.sendKeys(Res);
+//	}
 
 	
 }
