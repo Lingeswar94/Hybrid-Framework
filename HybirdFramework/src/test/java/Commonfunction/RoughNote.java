@@ -8,8 +8,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.support.ui.Select;
 
 import com.aventstack.extentreports.ExtentReports;
+
+import TestPage.PassengerPage;
 
 public class RoughNote {
 	WebDriver driver;
@@ -43,7 +46,28 @@ public class RoughNote {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+	public void MainPassenger(String Adtitle) {
+		Select select = new Select(PassengerPage.Title);
+		select.selectByValue(Adtitle);
+	}
+	public void adultPaxfirstname(String fname) {
+		firstname.sendKeys(fname);
+	}
+	public void adultPaxlastname(String lname) {
+		lastname.sendKeys(lname);
+	}
+	public void adultmobileno(String mobile) {
+		mobileno.sendKeys(mobile);
+	}
+	public void adultmail(String mail) {
+		email.sendKeys(mail);
+	}
+	public void adultconmail(String conmail) {
+		confrmemail.sendKeys(conmail);
+	}
+	public void adultRes(String Res) {
+		Residential.sendKeys(Res);
+	}
 
 	
 }
