@@ -100,7 +100,7 @@
             <suiteXmlFile>testng.xml</suiteXmlFile>
           </suiteXmlFiles>
           <systemPropertiesVariables>
-			<excutionAdultPaxName>${AdultPax}</excutionAdultPaxName>
+			<AdultPaxName>${AdultPax}</AdultPaxName>
 		  </systemPropertiesVariables>
         </configuration>
       </plugin>
