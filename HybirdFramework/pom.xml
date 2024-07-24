@@ -22,15 +22,7 @@
 			<artifactId>webdrivermanager</artifactId>
 			<version>5.8.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.basc.framework/log4j2 -->
-		<dependency>
-			<groupId>io.basc.framework</groupId>
-			<artifactId>log4j2</artifactId>
-			<version>1.8.3</version>
-			<scope>test</scope>
-		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
