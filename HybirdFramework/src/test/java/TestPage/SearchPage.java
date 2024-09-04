@@ -84,7 +84,6 @@ public class SearchPage {
 				driver.findElement(By.xpath("//th[@class='next']")).click();
 			}
 		}
-
 		driver.findElement(
 						By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + Date + ")]"))
 				.click();
