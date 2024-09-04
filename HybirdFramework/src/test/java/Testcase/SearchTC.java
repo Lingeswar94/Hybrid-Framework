@@ -32,9 +32,6 @@ public class SearchTC extends Commondetails {
 		SearchPage page = PageFactory.initElements(driver, SearchPage.class);
 
 		page.Tripselection(exceldata.getstringdata("Sheet1", 0, 1));
-		
-		
-		
 		page.departureroute(exceldata.getstringdata("Sheet1", 1, 1));
 		page.arrivalroute(exceldata.getstringdata("Sheet1", 2, 1));
 		page.DateSelection(exceldata.getstringdata("Sheet1", 3, 1), exceldata.getstringdata("Sheet1", 4, 1));

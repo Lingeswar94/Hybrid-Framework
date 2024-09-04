@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+
+
 public class SearchPage {
 
 	public static WebDriver driver;
@@ -74,7 +76,8 @@ public class SearchPage {
 
 	public void DateSelection(String Month, String Date) {
 		while (true) {
-			String Daytext = driver.findElement(By.xpath("//th[@class='datepicker-switch']")).getText();
+			String Daytext = driver.findElement(By.xpath("//th[@class='datepicker-switch']"))
+					.getText();
 			if (Daytext.equalsIgnoreCase(Month)) {
 				break;
 			} else {
@@ -82,7 +85,8 @@ public class SearchPage {
 			}
 		}
 
-		driver.findElement(By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + Date + ")]"))
+		driver.findElement(
+						By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + Date + ")]"))
 				.click();
 
 	}
