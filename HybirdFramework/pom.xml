@@ -87,7 +87,7 @@
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<systemPropertiesVariables>
-						<AdultPaxName>${AdultPax}</AdultPaxName>
+						<AdultPaxName>${MONTH}</AdultPaxName>
 					</systemPropertiesVariables>
 				</configuration>
 			</plugin>
