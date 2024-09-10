@@ -30,6 +30,7 @@ public class SearchTC extends Commondetails {
 		// test = extentReports.createTest("Verify to SearchFlight Page");
 		exceldata = new Exceldata();
 		String Months = properties.getProperty("MonthandYear");
+		String Date = properties.getProperty("dateselection");
 		SearchPage page = PageFactory.initElements(driver, SearchPage.class);
 
 		page.Tripselection(exceldata.getstringdata("Sheet1", 0, 1));
@@ -37,7 +38,7 @@ public class SearchTC extends Commondetails {
 		page.arrivalroute(exceldata.getstringdata("Sheet1", 2, 1));
 		// page.DateSelection(exceldata.getstringdata("Sheet1", 3, 1),
 		// exceldata.getstringdata("Sheet1", 4, 1));
-		page.DateSelection(Months, exceldata.getstringdata("Sheet1", 4, 1));
+		page.DateSelection(Months, Date);
 		// WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		page.ReturnDateselection(exceldata.getstringdata("Sheet1", 5, 1), exceldata.getstringdata("Sheet1", 6, 1));
 		page.Adultcount(exceldata.getstringdata("Sheet1", 7, 1));
