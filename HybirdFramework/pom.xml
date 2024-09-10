@@ -13,14 +13,14 @@
 			<artifactId>selenium-java</artifactId>
 			<version>4.21.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
 			<version>5.8.0</version>
 		</dependency>
 
-		
+
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -82,10 +82,13 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.3.0</version>
+				<suiteXmlFiles>
+					<suiteXmlFile>testng.xml</suiteXmlFile>
+				</suiteXmlFiles>
 				<configuration>
-					
+
 					<systemPropertyVariables>
-					<MonthandYear>${MonthandYear} </MonthandYear>
+						<MonthandYear>${MonthandYear} </MonthandYear>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
