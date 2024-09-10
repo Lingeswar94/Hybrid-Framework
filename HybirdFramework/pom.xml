@@ -82,11 +82,10 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.3.0</version>
-				<suiteXmlFiles>
-					<suiteXmlFile>testng.xml</suiteXmlFile>
-				</suiteXmlFiles>
 				<configuration>
-
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
 					<systemPropertyVariables>
 						<MonthandYear>${MonthandYear} </MonthandYear>
 					</systemPropertyVariables>
