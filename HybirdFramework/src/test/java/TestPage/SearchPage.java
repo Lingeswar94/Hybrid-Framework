@@ -8,8 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-
-
 public class SearchPage {
 
 	public static WebDriver driver;
@@ -53,12 +51,11 @@ public class SearchPage {
 				WebElement round = driver.findElement(By.xpath("//input[@id='ucMiniSearch_rdoJourneyType_1']"));
 				round.click();
 				fareFound = true;
-			}else if(triptext.contains(trip)) {
+			} else if (triptext.contains(trip)) {
 				WebElement multicity = driver.findElement(By.xpath("//input[@id='ucMiniSearch_rdoJourneyType_2']"));
 				multicity.click();
 				fareFound = true;
-			}
-			else {
+			} else {
 				System.out.println("No trip");
 			}
 		}
@@ -76,16 +73,16 @@ public class SearchPage {
 
 	public void DateSelection(String Month, String Date) {
 		while (true) {
-			String Daytext = driver.findElement(By.xpath("//th[@class='datepicker-switch']"))
-					.getText();
-			if (Daytext.equalsIgnoreCase(Month)) {
+			String Daytext = driver.findElement(By.xpath("//th[@class='datepicker-switch']")).getText();
+			String[] da = Daytext.split(" ");
+			//System.out.println(da[0]);
+			if (da[0].equalsIgnoreCase(Month)) {
 				break;
 			} else {
 				driver.findElement(By.xpath("//th[@class='next']")).click();
 			}
 		}
-		driver.findElement(
-						By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + Date + ")]"))
+		driver.findElement(By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + Date + ")]"))
 				.click();
 
 	}
