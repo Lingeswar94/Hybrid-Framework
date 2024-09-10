@@ -38,6 +38,14 @@
           <include name="ChooseBrowser"/>
         </methods>
       </class> <!-- Testcase.PaymentTC -->
+      <class name="Testcase.FlightresultTC">
+        <methods>
+          <include name="tearDownReport"/>
+          <include name="excelData"/>
+          <include name="ChooseBrowser"/>
+          <include name="Flightresult"/>
+        </methods>
+      </class> <!-- Testcase.FlightresultTC -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
