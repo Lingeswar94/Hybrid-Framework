@@ -86,9 +86,7 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
-					<systemPropertiesVariables>
-						<MonthandYear>${MONTH}</MonthandYear>
-					</systemPropertiesVariables>
+					<systemPropertiesVariables><MonthandYear>${MonthandYear}</MonthandYear></systemPropertiesVariables>
 				</configuration>
 			</plugin>
 		</plugins>
