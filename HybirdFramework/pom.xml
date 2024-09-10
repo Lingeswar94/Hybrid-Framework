@@ -88,6 +88,7 @@
 					</suiteXmlFiles>
 					<systemPropertyVariables>
 						<MonthandYear>${MonthandYear} </MonthandYear>
+						<dateselection>${dateselection} </dateselection>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
