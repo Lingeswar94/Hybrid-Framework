@@ -5,11 +5,11 @@
 	<groupId>HybridFramework</groupId>
 	<artifactId>HybirdFramework</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -90,6 +90,7 @@
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<systemPropertyVariables>
+						<Adultpax>${Adultpax} </Adultpax>
 						<MonthandYear>${MonthandYear} </MonthandYear>
 						<dateselection>${dateselection} </dateselection>
 					</systemPropertyVariables>

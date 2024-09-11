@@ -23,16 +23,16 @@ import TestPage.PassengerPage;
 public class PassengerTC extends Commondetails {
 
 	@Test
-	public void Passengerdetails( ) throws IOException {
+	public void Passengerdetails() throws IOException {
 
 		// test=extentReports.createTest("Verify to PassengerPage");
 		Exceldata exceldata = new Exceldata();
 		PassengerPage page = PageFactory.initElements(driver, PassengerPage.class);
-
-		page.MainPassenger(exceldata.getstringdata("Sheet2", 1, 1), exceldata.getstringdata("Sheet2", 2, 1),
-				exceldata.getstringdata("Sheet2", 3, 1), exceldata.getstringdata("Sheet2", 4, 1),
-				exceldata.getstringdata("Sheet2", 5, 1), exceldata.getstringdata("Sheet2", 6, 1),
-				exceldata.getstringdata("Sheet2", 7, 1));
+		// exceldata.getstringdata("Sheet2", 2, 1)
+		String Adult = properties.getProperty("AdultPax");
+		page.MainPassenger(exceldata.getstringdata("Sheet2", 1, 1), Adult, exceldata.getstringdata("Sheet2", 3, 1),
+				exceldata.getstringdata("Sheet2", 4, 1), exceldata.getstringdata("Sheet2", 5, 1),
+				exceldata.getstringdata("Sheet2", 6, 1), exceldata.getstringdata("Sheet2", 7, 1));
 
 		/*
 		 * page.MainPassenger(exceldata.getstringdata("Sheet2", 1, 1));
