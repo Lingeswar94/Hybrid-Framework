@@ -8,6 +8,7 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+			<Adultpax>${Adultpax} </Adultpax>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -89,7 +90,6 @@
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<systemPropertyVariables>
-						<Adultpax>${Adultpax} </Adultpax>
 						<MonthandYear>${MonthandYear} </MonthandYear>
 						<dateselection>${dateselection} </dateselection>
 					</systemPropertyVariables>
