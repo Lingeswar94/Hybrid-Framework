@@ -35,7 +35,47 @@ public class RoughNote {
 	 * 
 	 * @AfterSuite public void tearDownReport() { extent.flush(); } }
 	 */
+	/*
+	 * @BeforeClass public ExtentReports Extentreportdata() {
+	 * 
+	 * Reporter = new ExtentSparkReporter( new String(System.getProperty("user.dir")
+	 * + "/Reports/FCProject " + Helper.getCurrenttime() + ".html"));
+	 * Reporter.config().setDocumentTitle("Automation Test Report");
+	 * Reporter.config().setReportName("FC Normal Flow Project");
+	 * Reporter.config().setTheme(Theme.DARK); extentReports = new ExtentReports();
+	 * extentReports.attachReporter(Reporter);
+	 * extentReports.setSystemInfo("Environment", "QA");
+	 * extentReports.setSystemInfo("Application URL",
+	 * properties.getProperty("URL")); extentReports.setSystemInfo("BRowser Name",
+	 * properties.getProperty("Browser")); return extentReports;
+	 * 
+	 * }
+	 */
 
+	/*
+	 * @AfterMethod public void teardown(ITestResult result) throws IOException,
+	 * AWTException {
+	 * 
+	 * if (result.getStatus() == ITestResult.SUCCESS) { String screenshotPath =
+	 * Helper.getscreenshotcapture(driver, result.getTestName());
+	 * test.log(Status.PASS, "Test Passed: Screenshot capture",
+	 * MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+	 * 
+	 * } else if (result.getStatus() == ITestResult.FAILURE) {
+	 * 
+	 * String screenshotPath = Helper.getFailscreenshot(driver,
+	 * result.getTestName()); test.log(Status.FAIL,
+	 * "Test Failed: Screenshot capture",
+	 * MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+	 * 
+	 * } else if (result.getStatus() == ITestResult.SKIP) {
+	 * 
+	 * String screenshotPath = Helper.getskipScreenshot(driver,
+	 * result.getTestName()); test.log(Status.SKIP,
+	 * "Test Skiped: Screenshot capture",
+	 * MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build()); }
+	 * extentReports.flush(); }
+	 */
 	public void name() {
 
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);

@@ -19,7 +19,14 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.support.PageFactory;
 
+import TestPage.AddonPage;
+import TestPage.FlightResultPage;
+import TestPage.PassengerPage;
+import TestPage.PaymentPage;
+import TestPage.SearchPage;
+import TestPage.ThanksPage;
 import io.github.bonigarcia.wdm.webdriver.WebDriverBrowser;
 
 public class Helper {
@@ -50,7 +57,7 @@ public class Helper {
 
 		try {
 			ImageIO.write(bufferedImage, "png", file);
-			System.out.println("Fail Screenshot captured");
+			//System.out.println("Fail Screenshot captured");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Unable to capture screenshot" + e.getMessage());
@@ -126,6 +133,15 @@ public class Helper {
 	public static String getscreenshotbase64() {
 		return	((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 		 
+	}
+	
+	public static void initElement() {
+		PageFactory.initElements(Commondetails.getDriver(), SearchPage.getSearchPage());
+		PageFactory.initElements(Commondetails.getDriver(), FlightResultPage.getFlightResultPage());
+		PageFactory.initElements(Commondetails.getDriver(), PassengerPage.getPassengerPage());
+		PageFactory.initElements(Commondetails.getDriver(), AddonPage.getAddonPage());
+		PageFactory.initElements(Commondetails.getDriver(), PaymentPage.getPaymentPage());
+		PageFactory.initElements(Commondetails.getDriver(), ThanksPage.getThanksPage());
 	}
 
 	public static String getCurrenttime() {

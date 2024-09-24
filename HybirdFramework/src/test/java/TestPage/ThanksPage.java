@@ -1,28 +1,44 @@
 package TestPage;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ThanksPage {
 
-	static WebDriver driver;
 	
-	public ThanksPage(WebDriver driver) {
-		this.driver = driver;
+	Logger logger= Logger.getLogger(ThanksPage.class);
+private	static ThanksPage thanksPage;
+	
+	private ThanksPage() {
+		
 	}
-
+	
+	
+	public static ThanksPage getThanksPage() {
+		
+		if(thanksPage==null) {
+			thanksPage=new ThanksPage();
+		}
+		return thanksPage;
+	}
 	
 	@FindBy(xpath = "//input[@id='btnContinue']")
-	public static WebElement simulation;
+	private WebElement simulation;
 
 	@FindBy(xpath = "//button[@type='button']")
-	public static WebElement existing;
+	private WebElement existing;
 
 	@FindBy(xpath = "//h4[@class='rel-pos']")
-	public static WebElement PNR;
+	private WebElement PNR;
 
 	public void exit() {
 		existing.click();
+	}
+
+	public void getPNR() {
+	String BookingPNR	=PNR.getText();
+	logger.info("Booking PNR"+BookingPNR);
 	}
 }

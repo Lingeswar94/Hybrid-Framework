@@ -6,58 +6,66 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+import Commonfunction.Commondetails;
+
 public class PaymentPage {
 
-	
-	static WebDriver driver;
+	private static PaymentPage paymentPage;
 
-	public PaymentPage(WebDriver driver) {
-		this.driver = driver;
+	private PaymentPage() {
+
+	}
+
+	public static PaymentPage getPaymentPage() {
+		if (paymentPage == null) {
+			paymentPage = new PaymentPage();
+		}
+		return paymentPage;
 	}
 
 	@FindBy(xpath = "//label[@for='rdolstPaymentType_0']")
-	public static WebElement CCpayment;
+	private WebElement CCpayment;
 
 	@FindBy(xpath = "//input[@id='ucCardDetails_txtFName']")
-	public static WebElement Paymentcardname;
+	private WebElement Paymentcardname;
 
 	@FindBy(xpath = "//select[@id='ucCardDetails_ddlYear']")
-	public static WebElement Expirydate;
+	private WebElement Expirydate;
 
 	@FindBy(xpath = "//input[@id='ucCardDetails_txtCardNumber']")
-	public static WebElement Cardno;
+	private WebElement Cardno;
 
 	@FindBy(xpath = "//input[@id='ucCardDetails_txtCVVCode']")
-	public static WebElement CVV;
+	private WebElement CVV;
 
 	@FindBy(xpath = "//input[@id='ucPersonalDetails1_txtFName']")
-	public static WebElement BillingName;
-	
+	private WebElement BillingName;
+
 	@FindBy(xpath = "//input[@id='ucPersonalDetails1_txtLName']")
-	public static WebElement billinglastname;
+	private WebElement billinglastname;
 
 	@FindBy(xpath = "//input[@id='ucPersonalDetails1_txtAdd1']")
-	public static WebElement Address;
+	private WebElement Address;
 
 	@FindBy(xpath = "//input[@id='ucPersonalDetails1_txtCity']")
-	public static WebElement city;
+	private WebElement city;
 
 	// @FindBy
 	// (xpath="//select[@id='ucPersonalDetails1_ddlCountry']//option[@value='India']")
 	// public static WebElement Country;
 	@FindBy(id = "ucPersonalDetails1_ddlCountry")
-	public static WebElement country;
+	private WebElement country;
 	@FindBy(xpath = "//input[@id='ucPersonalDetails1_txtPostCode']")
-	public static WebElement Postcode;
+	private WebElement Postcode;
 
 	@FindBy(xpath = "//input[@id='ucPersonalDetails1_txtContactNo']")
-	public static WebElement Contact;
+	private WebElement Contact;
 
 	@FindBy(xpath = "//*[@id='chkRules']")
-	public static WebElement rule;
+	private WebElement rule;
 
 	@FindBy(xpath = "//input[@id='btnBooking']")
-	public static WebElement continuebtn;
+	private WebElement continuebtn;
 
 	public void SelectPayment() {
 		CCpayment.click();
@@ -69,19 +77,19 @@ public class PaymentPage {
 		CVV.sendKeys(CCVno);
 	}
 
-	public void expirydate() {
-		Select select = new Select(PaymentPage.Expirydate);
-		select.selectByValue("2025");
+	public void Expirationyear(String expyear) {
+		Select select = new Select(Expirydate);
+		select.selectByValue(expyear);
 	}
 
 	public void Billingdataclear() {
 		BillingName.clear();
 		billinglastname.clear();
 	}
-	
+
 	public void Billingdetails(String Billingname, String billlastname, String Addressdetails, String citydetails,
 			String Post, String contactno) {
-		
+
 		BillingName.sendKeys(Billingname);
 		billinglastname.sendKeys(billlastname);
 		Address.sendKeys(Addressdetails);
@@ -90,14 +98,14 @@ public class PaymentPage {
 		Contact.sendKeys(contactno);
 	}
 
-	public void selectCountry() {
-		Select select = new Select(PaymentPage.country);
-		select.selectByVisibleText("India");
+	public void selectCountry(String selectedCountry) {
+		Select select = new Select(country);
+		select.selectByVisibleText(selectedCountry);
 	}
 
 	public void checkbox() {
-		Actions actions = new Actions(driver);
-		actions.moveToElement(PaymentPage.rule);
+		Actions actions = new Actions(Commondetails.getDriver());
+		actions.moveToElement(rule);
 		actions.click().build().perform();
 	}
 
@@ -105,5 +113,4 @@ public class PaymentPage {
 		continuebtn.click();
 	}
 
-	
 }

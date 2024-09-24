@@ -2,13 +2,19 @@ package Commonfunction;
 
 import java.awt.AWTException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.hc.core5.http.Method;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterGroups;
@@ -28,6 +34,12 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import TestPage.AddonPage;
+import TestPage.FlightResultPage;
+import TestPage.PassengerPage;
+import TestPage.PaymentPage;
+import TestPage.SearchPage;
+import TestPage.ThanksPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Commondetails {
@@ -35,98 +47,85 @@ public class Commondetails {
 	public static Properties properties;
 	public static WebDriver driver;
 	public static Exceldata exceldata;
-	/*
-	 * public static ExtentReports extentReports; public static ExtentReportdata
-	 * extentReportdata; public static ExtentSparkReporter Reporter; public static
-	 * ExtentTest test;
-	 */
 
-	public Properties loadbrowser() throws IOException {
-		FileInputStream fileInputStream = new FileInputStream("./Config/config.properties");
+	Logger logger = Logger.getLogger(Commondetails.class);
+
+	public Properties loadbrowser() {
+		FileInputStream fileInputStream = null;
+		try {
+			fileInputStream = new FileInputStream("./Config/config.properties");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		properties = new Properties();
-		properties.load(fileInputStream);
+		try {
+			properties.load(fileInputStream);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return properties;
 	}
 
 	@BeforeSuite
 	public void ChooseBrowser() throws IOException {
 
+		PropertyConfigurator.configure("./Config/Log4j.properties");
+		logger.info("LinkAirway NormalFlow Automation Started");
 		loadbrowser();
-
+		logger.info("Application is going to execute");
 		String url = properties.getProperty("URL");
 		String browser = properties.getProperty("Browser");
-		if (browser.equalsIgnoreCase("Chrome")) {
-			WebDriverManager.chromedriver().setup();
-			// System.setProperty("webdriver.driver.chrome",
-			// properties.getProperty("Path"));
-			driver = new ChromeDriver();
+		logger.info("Application moved to Selecting Browser for execute ");
+		if (Commondetails.getDriver() == null) {
 
-		} else {
-			System.out.println("Not ");
+			if (browser.equalsIgnoreCase("Chrome")) {
+				WebDriverManager.chromedriver().setup();
+				driver = new ChromeDriver();
+				logger.info("Application has selected :" + browser);
+
+			} else if (browser.equalsIgnoreCase("Firefox")) {
+				WebDriverManager.firefoxdriver().setup();
+				driver = new FirefoxDriver();
+				logger.info("Application has selected :" + browser);
+			} else if (browser.equalsIgnoreCase("IE")) {
+				WebDriverManager.iedriver().setup();
+				driver = new InternetExplorerDriver();
+				logger.info("Application has selected :" + browser);
+			} else {
+				System.out.println("Not ");
+				logger.info("Application hasn't selected browser ");
+			}
+
+			Helper.initElement();
 		}
 
 		driver.navigate().to(url);
 		driver.manage().window().maximize();
-		// driver.navigate().refresh();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 
-	@BeforeMethod
-	public void excelData() {
-		try {
-			exceldata = new Exceldata();
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-
+	public static WebDriver getDriver() {
+		return driver;
 	}
 
-	/*
-	 * @BeforeClass public ExtentReports Extentreportdata() {
-	 * 
-	 * Reporter = new ExtentSparkReporter( new String(System.getProperty("user.dir")
-	 * + "/Reports/FCProject " + Helper.getCurrenttime() + ".html"));
-	 * Reporter.config().setDocumentTitle("Automation Test Report");
-	 * Reporter.config().setReportName("FC Normal Flow Project");
-	 * Reporter.config().setTheme(Theme.DARK); extentReports = new ExtentReports();
-	 * extentReports.attachReporter(Reporter);
-	 * extentReports.setSystemInfo("Environment", "QA");
-	 * extentReports.setSystemInfo("Application URL",
-	 * properties.getProperty("URL")); extentReports.setSystemInfo("BRowser Name",
-	 * properties.getProperty("Browser")); return extentReports;
-	 * 
-	 * }
-	 */
+	public static void initElement() {
+		PageFactory.initElements(Commondetails.getDriver(), SearchPage.getSearchPage());
+		PageFactory.initElements(Commondetails.getDriver(), FlightResultPage.getFlightResultPage());
+		PageFactory.initElements(Commondetails.getDriver(), PassengerPage.getPassengerPage());
+		PageFactory.initElements(Commondetails.getDriver(), AddonPage.getAddonPage());
+		PageFactory.initElements(Commondetails.getDriver(), PaymentPage.getPaymentPage());
+		PageFactory.initElements(Commondetails.getDriver(), ThanksPage.getThanksPage());
+	}
 
-	/*
-	 * @AfterMethod public void teardown(ITestResult result) throws IOException,
-	 * AWTException {
-	 * 
-	 * if (result.getStatus() == ITestResult.SUCCESS) { String screenshotPath =
-	 * Helper.getscreenshotcapture(driver, result.getTestName());
-	 * test.log(Status.PASS, "Test Passed: Screenshot capture",
-	 * MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
-	 * 
-	 * } else if (result.getStatus() == ITestResult.FAILURE) {
-	 * 
-	 * String screenshotPath = Helper.getFailscreenshot(driver,
-	 * result.getTestName()); test.log(Status.FAIL,
-	 * "Test Failed: Screenshot capture",
-	 * MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
-	 * 
-	 * } else if (result.getStatus() == ITestResult.SKIP) {
-	 * 
-	 * String screenshotPath = Helper.getskipScreenshot(driver,
-	 * result.getTestName()); test.log(Status.SKIP,
-	 * "Test Skiped: Screenshot capture",
-	 * MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build()); }
-	 * extentReports.flush(); }
-	 */
+	
 
 	@AfterSuite
 	public void tearDownReport() {
 
 		driver.quit();
-		
+		logger.info("LinkAirways Automation booking was successfully executed ");
+
 	}
 }

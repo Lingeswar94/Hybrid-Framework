@@ -49,7 +49,7 @@ public static	WebDriver driver;
 		String screenshot = Helper.getFailscreenshot(driver, result.getName());
 		test.log(Status.FAIL, MediaEntityBuilder.createScreenCaptureFromPath(screenshot).build());
 		test.log(Status.INFO, result.getThrowable());
-		test.log(Status.FAIL,result.getName()+"executed got failed " );
+		test.log(Status.FAIL,result.getName()+" executed got failed " );
 		
 	}
 

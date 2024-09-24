@@ -5,9 +5,7 @@
     <classes>
       <class name="Testcase.SearchTC">
         <methods>
-          <include name="Excelstringdata"/>
           <include name="tearDownReport"/>
-          <include name="teardown"/>
           <include name="ChooseBrowser"/>
           <include name="Startpage"/>
         </methods>

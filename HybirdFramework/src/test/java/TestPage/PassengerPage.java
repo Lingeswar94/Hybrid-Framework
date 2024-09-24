@@ -8,86 +8,92 @@ import org.openqa.selenium.support.ui.Select;
 
 public class PassengerPage {
 
-	public static WebDriver driver;
+	private static PassengerPage passengerPage;
 
-	public PassengerPage(WebDriver driver) {
-		this.driver = driver;
+	private PassengerPage() {
+		
+	}
+	public static PassengerPage getPassengerPage() {
+		if(passengerPage==null) {
+			passengerPage=new PassengerPage();
+		}
+		return passengerPage;
 	}
 
 	@FindBy(xpath = "//select[@id='ucPassenger1_lstPassenger_TITLE_0_ddlTitle_0']")
-	public static WebElement Title;
+	private WebElement Title;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_FIRSTNAME_0_txtFName_0']")
-	public static WebElement firstname;
+	private WebElement firstname;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_LASTNAME_0_txtLName_0']")
-	public static WebElement lastname;
+	private WebElement lastname;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_PAXMOBILENO_0_txtPaxMobileNo_0']")
-	public static WebElement mobileno;
+	private WebElement mobileno;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_EMAIL_0_txtEmail_0']")
-	public static WebElement email;
+	private WebElement email;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_ConfirmEmail_0_txtConfirmEmail_0']")
-	public static WebElement confrmemail;
+	private WebElement confrmemail;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_COUNTRYPOSTCODE_0_txtResPostCode_0']")
-	public static WebElement Residential;
+	private WebElement Residential;
 
 	@FindBy(xpath = "//input[@id='btnConfirmPassenger']")
-	public static WebElement Passctn;
+	private WebElement Passctn;
 
 	// Child
 	@FindBy(xpath = "//select[@id='ucPassenger1_lstPassenger_TITLE_1_ddlTitle_1']")
-	public static WebElement chTitle;
+	private WebElement chTitle;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_FIRSTNAME_1_txtFName_1']")
-	public static WebElement Childfirstname;
+	private WebElement Childfirstname;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_LASTNAME_1_txtLName_1']")
-	public static WebElement Childlastname;
+	private WebElement Childlastname;
 
 	@FindBy(xpath = "//select[@id='ucPassenger1_lstPassenger_DATEOFBIRTH_1_ddlDay_1']")
-	public static WebElement ChildDOBdate;
+	private WebElement ChildDOBdate;
 
 	@FindBy(xpath = "//select[@id='ucPassenger1_lstPassenger_DATEOFBIRTH_1_ddlMonth_1']")
-	public static WebElement ChildDOBmonth;
+	private WebElement ChildDOBmonth;
 
 	@FindBy(xpath = "//select[@id='ucPassenger1_lstPassenger_DATEOFBIRTH_1_ddlYear_1']")
-	public static WebElement ChildDOBYear;
+	private WebElement ChildDOBYear;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_COUNTRYPOSTCODE_1_txtResPostCode_1']")
-	public static WebElement ChildResidential;
+	private WebElement ChildResidential;
 
 	// infant
 	@FindBy(xpath = "//select[@id='ucPassenger1_lstPassenger_TITLE_2_ddlTitle_2']")
-	public static WebElement INTitle;
+	private WebElement INTitle;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_FIRSTNAME_2_txtFName_2']")
-	public static WebElement Infantfirstname;
+	private WebElement Infantfirstname;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_LASTNAME_2_txtLName_2']")
-	public static WebElement Infantlastname;
+	private WebElement Infantlastname;
 
 	@FindBy(xpath = "//select[@id='ucPassenger1_lstPassenger_DATEOFBIRTH_2_ddlDay_2']")
-	public static WebElement InfantDOBdate;
+	private WebElement InfantDOBdate;
 
 	@FindBy(xpath = "//select[@id='ucPassenger1_lstPassenger_DATEOFBIRTH_2_ddlMonth_2']")
-	public static WebElement InfantDOBmonth;
+	private WebElement InfantDOBmonth;
 
 	@FindBy(xpath = "//select[@id='ucPassenger1_lstPassenger_DATEOFBIRTH_2_ddlYear_2']")
-	public static WebElement InfantDOBYear;
+	private WebElement InfantDOBYear;
 
 	@FindBy(xpath = "//input[@id='ucPassenger1_lstPassenger_COUNTRYPOSTCODE_2_txtResPostCode_2']")
-	public static WebElement InfantResidential;
+	private WebElement InfantResidential;
 
 	@FindBy(xpath = "//input[@id='btnConfirmPassenger']")
-	public WebElement passcontinue;
+	private WebElement passcontinue;
 
 	public void MainPassenger(String Adtitle, String fname, String lname, String mobile, String mailid, String conemail,
 			String Res) {
-		Select select = new Select(PassengerPage.Title);
+		Select select = new Select(Title);
 		select.selectByValue(Adtitle);
 		firstname.sendKeys(fname);
 		lastname.sendKeys(lname);
@@ -109,30 +115,30 @@ public class PassengerPage {
 	 */
 	public void childPassenger(String chtitle, String fname, String lname, String date, String month, String year,
 			String Res) {
-		Select select = new Select(PassengerPage.chTitle);
+		Select select = new Select(chTitle);
 		select.selectByVisibleText(chtitle);
 		Childfirstname.sendKeys(fname);
 		Childlastname.sendKeys(lname);
-		Select select2 = new Select(PassengerPage.ChildDOBdate);
+		Select select2 = new Select(ChildDOBdate);
 		select2.selectByVisibleText(date);
-		Select select3 = new Select(PassengerPage.ChildDOBmonth);
+		Select select3 = new Select(ChildDOBmonth);
 		select3.selectByVisibleText(month);
-		Select select4 = new Select(PassengerPage.ChildDOBYear);
+		Select select4 = new Select(ChildDOBYear);
 		select4.selectByVisibleText(year);
 		ChildResidential.sendKeys(Res);
 	}
 
 	public void InfantPax(String intitle, String fname, String lname, String date, String month, String year,
 			String Res) {
-		Select select = new Select(PassengerPage.INTitle);
+		Select select = new Select(INTitle);
 		select.selectByVisibleText(intitle);
 		Infantfirstname.sendKeys(fname);
 		Infantlastname.sendKeys(lname);
-		Select select2 = new Select(PassengerPage.InfantDOBdate);
+		Select select2 = new Select(InfantDOBdate);
 		select2.selectByVisibleText(date);
-		Select select3 = new Select(PassengerPage.InfantDOBmonth);
+		Select select3 = new Select(InfantDOBmonth);
 		select3.selectByVisibleText(month);
-		Select select4 = new Select(PassengerPage.InfantDOBYear);
+		Select select4 = new Select(InfantDOBYear);
 		select4.selectByVisibleText(year);
 		InfantResidential.sendKeys(Res);
 	}
@@ -140,4 +146,6 @@ public class PassengerPage {
 	public void Passengercontinue() {
 		passcontinue.click();
 	}
+
+	
 }

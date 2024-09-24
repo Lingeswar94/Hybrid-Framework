@@ -9,35 +9,39 @@ import org.openqa.selenium.support.FindBy;
 
 public class FlightResultPage {
 
-	public static WebDriver driver;
+	private static FlightResultPage flightResultPage;
 
-	public FlightResultPage(WebDriver driver) {
-		this.driver = driver;
-
+	private FlightResultPage() {
+	
+	}
+	
+	public static FlightResultPage getFlightResultPage() {
+		if(flightResultPage==null) {
+			flightResultPage=new FlightResultPage();
+		}
+		return flightResultPage;
 	}
 
 	@FindBy(xpath = "//div[@id='divOBFlightResults']/div/div/ul/li")
-	public List<WebElement> Fareselection;
+	private List<WebElement> Fareselection;
 
 	@FindBy(xpath = "//*[@id='btnContinue']")
-	public WebElement flightcontinue;
+	private WebElement flightcontinue;
 
 	public void Fareselecting(String fareClass) {
 
 		int x = Fareselection.size();
-		System.out.println(x);
+		//System.out.println(x);
 		boolean fareFound = false;
 		for (int i = 0; i < x && !fareFound;i++) {
 			WebElement fare = Fareselection.get(i);
 			String fareClassAttr = fare.getAttribute("class");
 			if (fareClassAttr.equalsIgnoreCase(fareClass)) {
-				System.out.println(fareClass);
+				//System.out.println(fareClass);
 				fare.click();
 				fareFound = true;
 			} 
-			else  {
-				System.out.println("No suitable fare found.");
-			}
+			
 		}
 		
 
@@ -46,5 +50,7 @@ public class FlightResultPage {
 	public void FlightContiune() {
 		flightcontinue.click();
 	}
+
+	
 
 }

@@ -6,46 +6,20 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="Testcase.AddonTC">
-        <methods>
-          <include name="Addoncase"/>
-          <include name="tearDownReport"/>
-          <include name="excelData"/>
-          <include name="ChooseBrowser"/>
-        </methods>
-      </class> <!-- Testcase.AddonTC -->
-      <class name="Testcase.PassengerTC">
-        <methods>
-          <include name="tearDownReport"/>
-          <include name="excelData"/>
-          <include name="ChooseBrowser"/>
-          <include name="Passengerdetails"/>
-        </methods>
-      </class> <!-- Testcase.PassengerTC -->
-      <class name="Testcase.ThanksTC">
-        <methods>
-          <include name="Thankscase"/>
-          <include name="tearDownReport"/>
-          <include name="excelData"/>
-          <include name="ChooseBrowser"/>
-        </methods>
-      </class> <!-- Testcase.ThanksTC -->
       <class name="Testcase.PaymentTC">
         <methods>
           <include name="Paymentcase"/>
           <include name="tearDownReport"/>
-          <include name="excelData"/>
           <include name="ChooseBrowser"/>
         </methods>
       </class> <!-- Testcase.PaymentTC -->
-      <class name="Testcase.FlightresultTC">
+      <class name="Testcase.ThanksTC">
         <methods>
+          <include name="Thankscase"/>
           <include name="tearDownReport"/>
-          <include name="excelData"/>
           <include name="ChooseBrowser"/>
-          <include name="Flightresult"/>
         </methods>
-      </class> <!-- Testcase.FlightresultTC -->
+      </class> <!-- Testcase.ThanksTC -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

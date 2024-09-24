@@ -1,5 +1,6 @@
 package Testcase;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
@@ -11,13 +12,19 @@ import TestPage.ThanksPage;
 
 public class ThanksTC extends Commondetails {
 
-	
+	Logger logger = Logger.getLogger(ThanksTC.class);
+
 	@Test
 	public void Thankscase() {
-		//	test=extentReports.createTest("Verify to ThanksPage");
-		ThanksPage thanksPage = PageFactory.initElements(driver, ThanksPage.class);
+		// test=extentReports.createTest("Verify to ThanksPage");
 		
-		thanksPage.exit();
-		
+		logger.info("User is on Thanks page");
+		try {
+			ThanksPage.getThanksPage().exit();
+			ThanksPage.getThanksPage().getPNR();
+			logger.info(logger);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
 	}
 }
