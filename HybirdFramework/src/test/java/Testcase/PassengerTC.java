@@ -32,8 +32,8 @@ public class PassengerTC extends Commondetails {
 		// exceldata.getstringdata("Sheet2", 2, 1)
 		logger.info("User is on Passenger page");
 
-		String Adult = properties.getProperty("AdultPax");
-
+		//String Adult = properties.getProperty("AdultPax");
+		String Adult=System.getProperty("AdultPax");
 		try {
 			PassengerPage.getPassengerPage().MainPassenger(exceldata.getstringdata("Sheet2", 1, 1), Adult,
 					exceldata.getstringdata("Sheet2", 3, 1), exceldata.getstringdata("Sheet2", 4, 1),
