@@ -120,9 +120,9 @@ public class SearchPage {
 					.findElement(By.xpath(
 							"//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate + ")]"))
 					.click();
-		} else {
-			System.out.println("Oneway Trip");
-		}
+		} /*
+			 * else { System.out.println("Oneway Trip"); }
+			 */
 	}
 
 	public void Adultcount(String ADTcount) {
