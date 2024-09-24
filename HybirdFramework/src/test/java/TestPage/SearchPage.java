@@ -101,7 +101,6 @@ public class SearchPage {
 				.findElement(
 						By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + Date + ")]"))
 				.click();
-
 	}
 
 	public void ReturnDateselection(String returnmonth, String redate) {
