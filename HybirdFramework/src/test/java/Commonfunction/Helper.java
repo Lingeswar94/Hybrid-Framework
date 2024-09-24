@@ -127,7 +127,6 @@ public class Helper {
 			System.out.println("Unable to capture screenshot" + e.getMessage());
 		}
 		return screenshot;
-
 	}
 
 	public static String getscreenshotbase64() {
