@@ -76,23 +76,23 @@ public class Commondetails {
 		logger.info("Application is going to execute");
 		String url = properties.getProperty("URL");
 		//String browser = properties.getProperty("Browser");
-		String browser =System.getProperty("browser");
+		String Browser =System.getProperty("browser");
 		logger.info("Application moved to Selecting Browser for execute ");
 		if (Commondetails.driver == null) {
 
-			if (browser.equalsIgnoreCase("Chrome")) {
+			if (Browser.equalsIgnoreCase("Chrome")) {
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
-				logger.info("Application has selected :" + browser);
+				logger.info("Application has selected :" + Browser);
 
-			} else if (browser.equalsIgnoreCase("Firefox")) {
+			} else if (Browser.equalsIgnoreCase("Firefox")) {
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
-				logger.info("Application has selected :" + browser);
-			} else if (browser.equalsIgnoreCase("IE")) {
+				logger.info("Application has selected :" + Browser);
+			} else if (Browser.equalsIgnoreCase("IE")) {
 				WebDriverManager.iedriver().setup();
 				driver = new InternetExplorerDriver();
-				logger.info("Application has selected :" + browser);
+				logger.info("Application has selected :" + Browser);
 			} else {
 				System.out.println("Not ");
 				logger.info("Application hasn't selected browser ");
