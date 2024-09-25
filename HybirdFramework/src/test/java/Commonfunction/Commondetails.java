@@ -75,8 +75,8 @@ public class Commondetails {
 		loadbrowser();
 		logger.info("Application is going to execute");
 		String url = properties.getProperty("URL");
-		String browser = properties.getProperty("Browser");
-		//String Browser =System.getProperty("browser");
+		//String browser = properties.getProperty("Browser");
+		String browser =System.getProperty("browser");
 		logger.info("Application moved to Selecting Browser for execute ");
 		
 		if(Commondetails.getDriver()==null) {
