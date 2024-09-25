@@ -13,6 +13,7 @@
 		<browser>Chrome</browser>
 		<MonthandYear>October</MonthandYear>
 		<date>16</date>
+		<cabinfare>pro select_out</cabinfare>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -98,6 +99,7 @@
 						<browser>${browser}</browser>
 						<MonthandYear>${MonthandYear} </MonthandYear>
 						<date>${date}</date>
+						<cabinfare>${cabinfare}</cabinfare>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>

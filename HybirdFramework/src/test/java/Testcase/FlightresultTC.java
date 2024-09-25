@@ -31,7 +31,8 @@ public class FlightresultTC extends Commondetails {
 		// test=extentReports.createTest("Selecting cabinclass and fare");
 		logger.info("User is on Flightresult page");
 		try {
-			FlightResultPage.getFlightResultPage().Fareselecting(exceldata.getstringdata("Sheet1", 11, 1));
+			String cabinfare = System.getProperty("cabinfare");
+			FlightResultPage.getFlightResultPage().Fareselecting(cabinfare);
 			logger.info("User is Selected Cabinclass Fare for journey");
 			FlightResultPage.getFlightResultPage().FlightContiune();
 			// test.pass("Redirect to Passenger page");
