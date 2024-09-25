@@ -78,7 +78,7 @@ public class Commondetails {
 		//String browser = properties.getProperty("Browser");
 		String Browser =System.getProperty("browser");
 		logger.info("Application moved to Selecting Browser for execute ");
-		if (Commondetails.driver == null) {
+		if (driver == null) {
 
 			if (Browser.equalsIgnoreCase("Chrome")) {
 				WebDriverManager.chromedriver().setup();
@@ -101,8 +101,8 @@ public class Commondetails {
 			Helper.initElement();
 		}
 
-		Commondetails.driver.navigate().to(url);
-		Commondetails.driver.manage().window().maximize();
+		driver.navigate().to(url);
+		driver.manage().window().maximize();
 		//Commondetails.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 
