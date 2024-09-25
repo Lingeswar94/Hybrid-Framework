@@ -47,7 +47,7 @@ public class Commondetails {
 	public static Properties properties;
 	public static WebDriver driver;
 	public static Exceldata exceldata;
-
+	String Browser =System.getProperty("browser");
 	Logger logger = Logger.getLogger(Commondetails.class);
 	public Properties loadbrowser() {
 		FileInputStream fileInputStream = null;
