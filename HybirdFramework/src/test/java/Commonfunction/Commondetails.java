@@ -45,7 +45,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Commondetails {
 
 	public static Properties properties;
-	public static WebDriver driver;
+	public static WebDriver driver =null;
 	public static Exceldata exceldata;
 	String Browser =System.getProperty("browser");
 	Logger logger = Logger.getLogger(Commondetails.class);
@@ -78,7 +78,7 @@ public class Commondetails {
 		//String browser = properties.getProperty("Browser");
 		String Browser =System.getProperty("browser");
 		logger.info("Application moved to Selecting Browser for execute ");
-		if (driver == null) {
+		 
 
 			if (Browser.equalsIgnoreCase("Chrome")) {
 				WebDriverManager.chromedriver().setup();
@@ -99,7 +99,7 @@ public class Commondetails {
 			}
 
 			Helper.initElement();
-		}
+		
 
 		driver.navigate().to(url);
 		driver.manage().window().maximize();
