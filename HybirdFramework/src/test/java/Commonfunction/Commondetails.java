@@ -45,7 +45,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Commondetails {
 
 	public static Properties properties;
-	public static WebDriver driver;
+	public static WebDriver driver=null;
 	public static Exceldata exceldata;
 
 	Logger logger = Logger.getLogger(Commondetails.class);
@@ -103,7 +103,7 @@ public class Commondetails {
 
 		Commondetails.getDriver().navigate().to(url);
 		Commondetails.getDriver().manage().window().maximize();
-		Commondetails.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		//Commondetails.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 
 	public static WebDriver getDriver() {
