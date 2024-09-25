@@ -12,12 +12,12 @@ public class FlightResultPage {
 	private static FlightResultPage flightResultPage;
 
 	private FlightResultPage() {
-	
+
 	}
-	
+
 	public static FlightResultPage getFlightResultPage() {
-		if(flightResultPage==null) {
-			flightResultPage=new FlightResultPage();
+		if (flightResultPage == null) {
+			flightResultPage = new FlightResultPage();
 		}
 		return flightResultPage;
 	}
@@ -31,26 +31,25 @@ public class FlightResultPage {
 	public void Fareselecting(String fareClass) {
 
 		int x = Fareselection.size();
-		//System.out.println(x);
+		// System.out.println(x);
 		boolean fareFound = false;
-		for (int i = 0; i < x && !fareFound;i++) {
+		for (int i = 0; i < x && !fareFound; i++) {
 			WebElement fare = Fareselection.get(i);
+
 			String fareClassAttr = fare.getAttribute("class");
-			if (fareClassAttr.equalsIgnoreCase(fareClass)) {
-				//System.out.println(fareClass);
+			String[] cabin = fareClassAttr.split(" ");
+			if (cabin[0].equalsIgnoreCase(fareClass)) {
+				// System.out.println(fareClass);
 				fare.click();
 				fareFound = true;
-			} 
-			
+			}
+
 		}
-		
 
 	}
 
 	public void FlightContiune() {
 		flightcontinue.click();
 	}
-
-	
 
 }

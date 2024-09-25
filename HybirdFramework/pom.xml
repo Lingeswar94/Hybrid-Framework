@@ -13,7 +13,7 @@
 		<browser>Chrome</browser>
 		<MonthandYear>October</MonthandYear>
 		<date>16</date>
-		<cabinfare>pro select_out</cabinfare>
+		<cabinfare>pro</cabinfare>
 	</properties>
 	<dependencies>
 		<dependency>
