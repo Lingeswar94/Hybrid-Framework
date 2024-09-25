@@ -12,7 +12,9 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
@@ -86,8 +88,10 @@ public class Commondetails {
 				logger.info("Application has selected :" + browser);
 
 			} else if (browser.equalsIgnoreCase("Firefox")) {
+				FirefoxOptions options = new FirefoxOptions();
+				options.addArguments("--remote-allow-origins=*");
 				WebDriverManager.firefoxdriver().setup();
-				driver = new FirefoxDriver();
+				driver = new FirefoxDriver(options);
 				logger.info("Application has selected :" + browser);
 			} else if (browser.equalsIgnoreCase("IE")) {
 				WebDriverManager.iedriver().setup();
