@@ -11,6 +11,8 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<Adultpax>Akthar</Adultpax>
 		<browser>Chrome</browser>
+		<MonthandYear>${MonthandYear} </MonthandYear>
+		<date>${date} </date>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -95,12 +97,11 @@
 						<Adultpax>${Adultpax} </Adultpax>
 						<browser>${browser}</browser>
 						<MonthandYear>${MonthandYear} </MonthandYear>
-						<dateselection>${dateselection} </dateselection>
+						<date>${date}</date>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
 		</plugins>
-
 
 	</build>
 </project>

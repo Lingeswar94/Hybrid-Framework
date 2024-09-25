@@ -88,10 +88,10 @@ public class Commondetails {
 				logger.info("Application has selected :" + browser);
 
 			} else if (browser.equalsIgnoreCase("Firefox")) {
-				FirefoxOptions options = new FirefoxOptions();
-				options.addArguments("--remote-allow-origins=*");
+				//FirefoxOptions options = new FirefoxOptions();
+				//options.addArguments("--remote-allow-origins=*");
 				WebDriverManager.firefoxdriver().setup();
-				driver = new FirefoxDriver(options);
+				driver = new FirefoxDriver();
 				logger.info("Application has selected :" + browser);
 			} else if (browser.equalsIgnoreCase("IE")) {
 				WebDriverManager.iedriver().setup();
@@ -106,6 +106,7 @@ public class Commondetails {
 		}
 
 		Commondetails.getDriver().navigate().to(url);
+		Commondetails.getDriver().manage().deleteAllCookies();
 		Commondetails.getDriver().manage().window().maximize();
 		Commondetails.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}

@@ -85,13 +85,13 @@ public class SearchPage {
 		select2.selectByValue(arrival);
 	}
 
-	public void DateSelection(String Month, String Date) {
+	public void DateSelection(String MonthandYear, String date) {
 		while (true) {
 			String Daytext = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']"))
 					.getText();
 			String[] da = Daytext.split(" ");
 			// System.out.println(da[0]);
-			if (da[0].equalsIgnoreCase(Month)) {
+			if (da[0].equalsIgnoreCase(MonthandYear)) {
 				break;
 			} else {
 				Commondetails.getDriver().findElement(By.xpath("//th[@class='next']")).click();
@@ -99,7 +99,7 @@ public class SearchPage {
 		}
 		Commondetails.getDriver()
 				.findElement(
-						By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + Date + ")]"))
+						By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + date + ")]"))
 				.click();
 	}
 
