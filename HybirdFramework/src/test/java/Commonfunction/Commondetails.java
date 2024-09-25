@@ -101,9 +101,9 @@ public class Commondetails {
 			Helper.initElement();
 		}
 
-		driver.navigate().to(url);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		Commondetails.getDriver().navigate().to(url);
+		Commondetails.getDriver().manage().window().maximize();
+		Commondetails.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 
 	public static WebDriver getDriver() {
