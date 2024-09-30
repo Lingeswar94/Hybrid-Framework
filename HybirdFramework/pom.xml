@@ -14,6 +14,9 @@
 		<MonthandYear>October</MonthandYear>
 		<date>16</date>
 		<cabinfare>pro</cabinfare>
+		<Departurecity>BNE</Departurecity>
+		<ArrivalCity>DBO</ArrivalCity>
+		<JourneyTrip>One Way</JourneyTrip>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -100,6 +103,8 @@
 						<MonthandYear>${MonthandYear} </MonthandYear>
 						<date>${date}</date>
 						<cabinfare>${cabinfare}</cabinfare>
+						<Departurecity>${Departurecity}</Departurecity>
+						<ArrivalCity>${ArrivalCity}</ArrivalCity>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>

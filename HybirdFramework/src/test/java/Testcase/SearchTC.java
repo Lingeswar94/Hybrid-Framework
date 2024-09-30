@@ -37,13 +37,19 @@ public class SearchTC extends Commondetails {
 		//String Date = properties.getProperty("dateselection");
 		String MonthandYear = System.getProperty("MonthandYear");
 		String date = System.getProperty("date");
+		String Departurecity=System.getProperty("Departurecity");
+		String ArrivalCity=System.getProperty("ArrivalCity");
+		String JourneyTrip=System.getProperty("JourneyTrip");
 		try {
 			logger.info("User is to select Trip for Journey ");
-			SearchPage.getSearchPage().Tripselection(exceldata.getstringdata("Sheet1", 0, 1));
+			//SearchPage.getSearchPage().Tripselection(exceldata.getstringdata("Sheet1", 0, 1));
+			SearchPage.getSearchPage().Tripselection(JourneyTrip);
 			logger.info("User is to select Departurecity ");
-			SearchPage.getSearchPage().departureroute(exceldata.getstringdata("Sheet1", 1, 1));
+			//SearchPage.getSearchPage().departureroute(exceldata.getstringdata("Sheet1", 1, 1));
+			SearchPage.getSearchPage().departureroute(Departurecity);
 			logger.info("User is to select Arrivalcity ");
-			SearchPage.getSearchPage().arrivalroute(exceldata.getstringdata("Sheet1", 2, 1));
+			//SearchPage.getSearchPage().arrivalroute(exceldata.getstringdata("Sheet1", 2, 1));
+			SearchPage.getSearchPage().arrivalroute(ArrivalCity);
 			logger.info("User is to select Date of Travel ");
 			// SearchPage.getSearchPage().DateSelection(exceldata.getstringdata("Sheet1", 3,
 			// 1), exceldata.getstringdata("Sheet1", 4, 1));
