@@ -55,7 +55,8 @@ public class SearchPage {
 		for (int i = 0; i <= size && !fareFound; i++) {
 			WebElement journey = Trip.get(i);
 			String triptext = journey.getText();
-			if (triptext.contains(trip)) {
+			String[] jounerytrip =triptext.split(" ");
+			if (jounerytrip[0].contains(trip)) {
 				WebElement oneway = Commondetails.getDriver().findElement(By.id("ucMiniSearch_rdoJourneyType_0"));
 				oneway.click();
 				fareFound = true;
@@ -64,7 +65,7 @@ public class SearchPage {
 						.findElement(By.xpath("//input[@id='ucMiniSearch_rdoJourneyType_1']"));
 				round.click();
 				fareFound = true;
-			} else if (triptext.contains(trip)) {
+			} else if (jounerytrip[0].contains(trip)) {
 				WebElement multicity = Commondetails.getDriver()
 						.findElement(By.xpath("//input[@id='ucMiniSearch_rdoJourneyType_2']"));
 				multicity.click();

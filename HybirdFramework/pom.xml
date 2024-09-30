@@ -16,7 +16,7 @@
 		<cabinfare>pro</cabinfare>
 		<Departurecity>BNE</Departurecity>
 		<ArrivalCity>DBO</ArrivalCity>
-		<JourneyTrip>One Way</JourneyTrip>
+		<JourneyTrip>One</JourneyTrip>
 	</properties>
 	<dependencies>
 		<dependency>
