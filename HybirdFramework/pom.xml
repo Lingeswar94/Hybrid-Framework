@@ -9,14 +9,17 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<Adultpax>Akthar</Adultpax>
+		<Adultpax>Kumaran</Adultpax>
 		<browser>Chrome</browser>
-		<MonthandYear>October</MonthandYear>
-		<date>16</date>
+		<MonthandYear>December</MonthandYear>
+		<date>11</date>
+		<returnmonth>December</returnmonth>
+		<redate>18</redate>
 		<cabinfare>pro</cabinfare>
+		<IBcabinfare>pro</IBcabinfare>
 		<Departurecity>BNE</Departurecity>
 		<ArrivalCity>DBO</ArrivalCity>
-		<JourneyTrip>One</JourneyTrip>
+		<JourneyTrip>2</JourneyTrip>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -102,9 +105,13 @@
 						<browser>${browser}</browser>
 						<MonthandYear>${MonthandYear} </MonthandYear>
 						<date>${date}</date>
+						<returnmonth>${returnmonth}</returnmonth>
+						<redate>${redate}</redate>
 						<cabinfare>${cabinfare}</cabinfare>
+						<IBcabinfare>${IBcabinfare}</IBcabinfare>
 						<Departurecity>${Departurecity}</Departurecity>
 						<ArrivalCity>${ArrivalCity}</ArrivalCity>
+						<JourneyTrip>${JourneyTrip}</JourneyTrip>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>

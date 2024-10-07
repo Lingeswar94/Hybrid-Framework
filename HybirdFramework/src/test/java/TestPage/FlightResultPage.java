@@ -23,29 +23,44 @@ public class FlightResultPage {
 	}
 
 	@FindBy(xpath = "//div[@id='divOBFlightResults']/div/div/ul/li")
-	private List<WebElement> Fareselection;
+	private List<WebElement> OBFareselection;
+	
+	@FindBy(xpath="//div[@id='divIBFlightResults']/div/div/ul/li")
+	private List<WebElement>IBFareselection;
 
 	@FindBy(xpath = "//*[@id='btnContinue']")
 	private WebElement flightcontinue;
 
-	public void Fareselecting(String fareClass) {
+	
+	public void Fareselecting(String OBfareClass, String IBfareClass ) {
 
-		int x = Fareselection.size();
-		// System.out.println(x);
-		boolean fareFound = false;
-		for (int i = 0; i < x && !fareFound; i++) {
-			WebElement fare = Fareselection.get(i);
+	    // Outbound flight selection
+	    selectFare(OBFareselection, OBfareClass);
 
-			String fareClassAttr = fare.getAttribute("class");
-			String[] cabin = fareClassAttr.split(" ");
-			if (cabin[0].equalsIgnoreCase(fareClass)) {
-				// System.out.println(fareClass);
-				fare.click();
-				fareFound = true;
-			}
+	    // If it's a return trip, select fare for inbound flight as well
+	    if (!IBFareselection.isEmpty()) {
+	        selectFare(IBFareselection, IBfareClass);
+	    }
+	}
 
-		}
+	public void selectFare(List<WebElement> flightResults, String fareClass) {
+	    int flightCount = flightResults.size();
+	    boolean fareFound = false;
 
+	    for (int i = 0; i < flightCount &&!fareFound;  i++) {
+	        WebElement fare = flightResults.get(i);
+	        String fareClassAttr = fare.getAttribute("class");
+	        String[] cabin = fareClassAttr.split(" ");
+
+	        if (cabin[0].equalsIgnoreCase(fareClass)) {
+	            fare.click();
+	            fareFound = true;
+	        }
+	    }
+
+	    if (!fareFound) {
+	        System.out.println("Fare class not found: " + fareClass);
+	    }
 	}
 
 	public void FlightContiune() {

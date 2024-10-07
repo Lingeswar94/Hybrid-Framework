@@ -33,30 +33,23 @@ public class SearchTC extends Commondetails {
 
 		// test = extentReports.createTest("Verify to SearchFlight Page");
 		logger.info("User is on SearchPage ");
-		//String Months = properties.getProperty("MonthandYear");
-		//String Date = properties.getProperty("dateselection");
+		String JourneyTrip = System.getProperty("JourneyTrip");
 		String MonthandYear = System.getProperty("MonthandYear");
 		String date = System.getProperty("date");
-		String Departurecity=System.getProperty("Departurecity");
-		String ArrivalCity=System.getProperty("ArrivalCity");
-		String JourneyTrip=System.getProperty("JourneyTrip");
+		String returnmonth = System.getProperty("returnmonth");
+		String redate = System.getProperty("redate");
+		String Departurecity = System.getProperty("Departurecity");
+		String ArrivalCity = System.getProperty("ArrivalCity");
+		
 		try {
 			logger.info("User is to select Trip for Journey ");
-			//SearchPage.getSearchPage().Tripselection(exceldata.getstringdata("Sheet1", 0, 1));
-			SearchPage.getSearchPage().Tripselection(JourneyTrip);
+			
+			SearchPage.getSearchPage().journeyDateSelection(JourneyTrip, Departurecity, ArrivalCity, MonthandYear, date,
+					returnmonth, redate);
+			
 			logger.info("User is to select Departurecity ");
-			//SearchPage.getSearchPage().departureroute(exceldata.getstringdata("Sheet1", 1, 1));
-			SearchPage.getSearchPage().departureroute(Departurecity);
 			logger.info("User is to select Arrivalcity ");
-			//SearchPage.getSearchPage().arrivalroute(exceldata.getstringdata("Sheet1", 2, 1));
-			SearchPage.getSearchPage().arrivalroute(ArrivalCity);
 			logger.info("User is to select Date of Travel ");
-			// SearchPage.getSearchPage().DateSelection(exceldata.getstringdata("Sheet1", 3,
-			// 1), exceldata.getstringdata("Sheet1", 4, 1));
-			SearchPage.getSearchPage().DateSelection(MonthandYear, date);
-			// logger.info("User is to select Return Date of Travel ");
-			SearchPage.getSearchPage().ReturnDateselection(exceldata.getstringdata("Sheet1", 5, 1),
-					exceldata.getstringdata("Sheet1", 6, 1));
 			logger.info("User is to select Number of Adult Pax ");
 			SearchPage.getSearchPage().Adultcount(exceldata.getstringdata("Sheet1", 7, 1));
 			logger.info("User is to select Number of Child Pax ");
