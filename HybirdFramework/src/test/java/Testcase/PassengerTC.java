@@ -32,23 +32,15 @@ public class PassengerTC extends Commondetails {
 		// exceldata.getstringdata("Sheet2", 2, 1)
 		logger.info("User is on Passenger page");
 
-		//String Adult = properties.getProperty("AdultPax");
-		String Adult=System.getProperty("AdultPax");
+		//String AdultPax = properties.getProperty("AdultPax");
+		String AdultPax=System.getProperty("AdultPax");
 		try {
-			PassengerPage.getPassengerPage().MainPassenger(exceldata.getstringdata("Sheet2", 1, 1), Adult,
+			PassengerPage.getPassengerPage().MainPassenger(exceldata.getstringdata("Sheet2", 1, 1), AdultPax,
 					exceldata.getstringdata("Sheet2", 3, 1), exceldata.getstringdata("Sheet2", 4, 1),
 					exceldata.getstringdata("Sheet2", 5, 1), exceldata.getstringdata("Sheet2", 6, 1),
 					exceldata.getstringdata("Sheet2", 7, 1));
 			logger.info("User is has given Main Pax details ");
-			/*
-			 * page.MainPassenger(exceldata.getstringdata("Sheet2", 1, 1));
-			 * page.adultPaxfirstname(AdultPax);
-			 * page.adultPaxlastname(exceldata.getstringdata("Sheet2", 3, 1));
-			 * page.adultmobileno(exceldata.getstringdata("Sheet2", 4, 1));
-			 * page.adultmail(exceldata.getstringdata("Sheet2", 5, 1));
-			 * page.adultconmail(exceldata.getstringdata("Sheet2", 6, 1));
-			 * page.adultRes(exceldata.getstringdata("Sheet2", 7, 1));
-			 */
+			
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}

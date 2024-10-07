@@ -50,9 +50,7 @@ public class PaymentPage {
 	@FindBy(xpath = "//input[@id='ucPersonalDetails1_txtCity']")
 	private WebElement city;
 
-	// @FindBy
-	// (xpath="//select[@id='ucPersonalDetails1_ddlCountry']//option[@value='India']")
-	// public static WebElement Country;
+	
 	@FindBy(id = "ucPersonalDetails1_ddlCountry")
 	private WebElement country;
 	@FindBy(xpath = "//input[@id='ucPersonalDetails1_txtPostCode']")

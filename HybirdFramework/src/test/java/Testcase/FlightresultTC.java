@@ -32,13 +32,21 @@ public class FlightresultTC extends Commondetails {
 		logger.info("User is on Flightresult page");
 		try {
 			String cabinfare = System.getProperty("cabinfare");
-			FlightResultPage.getFlightResultPage().Fareselecting(cabinfare);
+			String IBcabinfare=System.getProperty("IBcabinfare");
+			FlightResultPage.getFlightResultPage().Fareselecting(cabinfare,IBcabinfare);
 			logger.info("User is Selected Cabinclass Fare for journey");
 			FlightResultPage.getFlightResultPage().FlightContiune();
 			// test.pass("Redirect to Passenger page");
 			// test=extentReports.createTest("Redirect to Passenger page");
 		} catch (Exception e) {
-			logger.error(e);
+			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void ReturnFlightresult() {
+		
+		
+		
+	}
+	
 }

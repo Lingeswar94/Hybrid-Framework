@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.Select;
 
@@ -108,6 +110,26 @@ public class RoughNote {
 //	public void adultRes(String Res) {
 //		Residential.sendKeys(Res);
 //	}
-
+	 
+	// * else if (jounerytrip[0].contains(trip)) { if
+	// * (triptext.equalsIgnoreCase("Return")) {
+	// * if(Commondetails.getDriver().findElement(By.xpath(
+	 //* "//input[@id='ucMiniSearch_rdoJourneyType_1']")).isSelected()) {
+	 //* System.out.println("Return is selected"); }break;
+	 //* //Commondetails.getDriver().findElement(By.id("ucMiniSearch_rdoJourneyType_0"
+	 //* )).click(); //WebElement round = Commondetails.getDriver()
+	 //* .findElement(By.xpath("//input[@id='ucMiniSearch_rdoJourneyType_1']"));
+	 //* //round.click(); //fareFound = true; }
 	
+	
+	public void Tripselection(String trip) {
+		// WebElement oneway =
+		// Commondetails.getDriver().findElement(By.id("ucMiniSearch_rdoJourneyType_0"));
+		// WebElement multicity =
+		// Commondetails.getDriver().findElement(By.xpath("//input[@id='ucMiniSearch_rdoJourneyType_2']"));
+		// WebElement round =
+		// Commondetails.getDriver().findElement(By.xpath("//input[@id='ucMiniSearch_rdoJourneyType_1']"));
+
+	}
 }
+

@@ -1,17 +1,26 @@
 package TestPage;
 
+import java.time.Duration;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Commonfunction.Commondetails;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SearchPage {
 
+	
+	Logger logger= Logger.getLogger(SearchPage.class);
 	
 	private static SearchPage searchPage;
 
@@ -20,15 +29,15 @@ public class SearchPage {
 	}
 
 	public static SearchPage getSearchPage() {
-		
-		if(searchPage==null) {
-			searchPage=new SearchPage();
+
+		if (searchPage == null) {
+			searchPage = new SearchPage();
 		}
 		return searchPage;
 	}
 
-	@FindBy(xpath = "//*[@id='ucMiniSearch_rdoJourneyType']/tbody/tr")
-	private  List<WebElement> Trip;
+	@FindBy(xpath = "//div[@id='ucMiniSearch_divJourneyType']/div/table/tbody/tr")
+	private List<WebElement> Trip;
 
 	@FindBy(xpath = "//select[@id='ucMiniSearch_depCity']")
 	private WebElement departurecity;
@@ -48,83 +57,113 @@ public class SearchPage {
 	@FindBy(xpath = "//input[@id='btnminiSearch']")
 	private WebElement searchagin;
 
-	public void Tripselection(String trip) {
+	public void journeyDateSelection(String value,String departurecity,String arrivalcity ,String Monthandyear, String date,String returnmonth, String redate  ) {
+	
+		selectJourneyTypeByValue(value); // "1" for One Way, "2" for Return
+		departureroute(departurecity);
+		arrivalroute(arrivalcity);
 
-		int size = Trip.size();
-		boolean fareFound = false;
-		for (int i = 0; i <= size && !fareFound; i++) {
-			WebElement journey = Trip.get(i);
-			String triptext = journey.getText();
-			String[] jounerytrip =triptext.split(" ");
-			if (jounerytrip[0].contains(trip)) {
-				WebElement oneway = Commondetails.getDriver().findElement(By.id("ucMiniSearch_rdoJourneyType_0"));
-				oneway.click();
-				fareFound = true;
-			} else if (triptext.contains(trip)) {
-				WebElement round = Commondetails.getDriver()
-						.findElement(By.xpath("//input[@id='ucMiniSearch_rdoJourneyType_1']"));
-				round.click();
-				fareFound = true;
-			} else if (jounerytrip[0].contains(trip)) {
-				WebElement multicity = Commondetails.getDriver()
-						.findElement(By.xpath("//input[@id='ucMiniSearch_rdoJourneyType_2']"));
-				multicity.click();
-				fareFound = true;
-			} else {
-				System.out.println("No trip selected");
-			}
+		// Conditional logic to run methods based on journey type
+		if (isOneWaySelected()) {
+			// Call DateSelection for one way journey
+			DateSelection(Monthandyear, date);
+		} else if (isReturnSelected()) {
+	
+			DateSelection(Monthandyear, date); // Departure date
+			ReturnDateselection(returnmonth, redate); // Return date
 		}
 	}
 
-	public void departureroute(String departure) {
+	// Method to select the journey type based on the value attribute
+	public void selectJourneyTypeByValue(String value) {
+		WebDriverWait wait = new WebDriverWait(Commondetails.getDriver(), Duration.ofSeconds(10));
+		WebElement journeyTypeRadioButton = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//input[@name='ucMiniSearch$rdoJourneyType' and @value='" + value + "']")));
+
+		journeyTypeRadioButton.click();
+		// Debugging: Print which option was selected
+		if (value.equals("1")) {
+			System.out.println("Selected: One Way");
+		} else if (value.equals("2")) {
+			System.out.println("Selected: Return");
+		} else {
+			System.out.println("Invalid value for journey type.");
+		}
+	}
+
+	// Method to check if "One Way" is selected
+	public boolean isOneWaySelected() {
+		WebElement oneWayRadioButton = Commondetails.getDriver().findElement(By.id("ucMiniSearch_rdoJourneyType_0"));
+		return oneWayRadioButton.isSelected();
+	}
+
+	// Method to check if "Return" is selected
+	public boolean isReturnSelected() {
+		WebElement returnRadioButton = Commondetails.getDriver().findElement(By.id("ucMiniSearch_rdoJourneyType_1"));
+		return returnRadioButton.isSelected();
+	}
+
+	// Method to select the departure city
+	public  void departureroute(String departure) {
 		Select select = new Select(departurecity);
 		select.selectByValue(departure);
 	}
 
-	public void arrivalroute(String arrival) {
+	// Method to select the arrival city
+	public  void arrivalroute(String arrival) {
 		Select select2 = new Select(arrivalcity);
 		select2.selectByValue(arrival);
 	}
 
+	// Method to select the departure date
 	public void DateSelection(String MonthandYear, String date) {
+		WebDriverWait wait = new WebDriverWait(Commondetails.getDriver(), Duration.ofSeconds(10));
 		while (true) {
-			String Daytext = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']"))
-					.getText();
+			String Daytext = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']")).getText();
 			String[] da = Daytext.split(" ");
-			// System.out.println(da[0]);
 			if (da[0].equalsIgnoreCase(MonthandYear)) {
 				break;
 			} else {
 				Commondetails.getDriver().findElement(By.xpath("//th[@class='next']")).click();
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//th[@class='next']")));
 			}
 		}
-		Commondetails.getDriver()
-				.findElement(
-						By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + date + ")]"))
-				.click();
+		wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + date + ")]"))).click();
 	}
 
+	// Method to select the return date
 	public void ReturnDateselection(String returnmonth, String redate) {
-		if (Commondetails.getDriver().findElement(By.xpath("//input[@id='ucMiniSearch_rdoJourneyType_1']"))
-				.isSelected()) {
-			while (true) {
-				String returndate = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']"))
-						.getText();
-				if (returndate.equalsIgnoreCase(returnmonth)) {
-					break;
-				} else {
-					Commondetails.getDriver().findElement(By.xpath("//th[@class='next']")).click();
-				}
-			}
-			Commondetails.getDriver()
-					.findElement(By.xpath(
-							"//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate + ")]"))
-					.click();
-		} /*
-			 * else { System.out.println("Oneway Trip"); }
-			 */
-	}
+		//WebDriverWait wait = new WebDriverWait(Commondetails.getDriver(), Duration.ofSeconds(10));
+		/*
+		 * while (true) { String returndate =
+		 * Commondetails.getDriver().findElement(By.xpath(
+		 * "//th[@class='datepicker-switch']")).getText(); String[] da1 =
+		 * returndate.split(" "); if (da1[0].equalsIgnoreCase(returnmonth)) { break; }
+		 * else {
+		 * Commondetails.getDriver().findElement(By.xpath("//th[@class='next']")).click(
+		 * ); } } Commondetails.getDriver().findElement(
+		 * By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text(),"
+		 * + redate + ")]")).click(); }
+		 */
 
+	while (true) {
+		String returndate = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']")).getText();
+	String[]da 	=returndate.split(" ");
+
+				if (da[0].equalsIgnoreCase(returnmonth)) {
+			break;
+		} else {
+			Commondetails.getDriver().findElement(By.xpath("//th[@class='next']")).click();
+		}
+	}
+	Commondetails.getDriver()
+			.findElement(By.xpath(
+					"//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate + ")]"))
+			.click();
+}
+
+	
 	public void Adultcount(String ADTcount) {
 		Select Adult = new Select(AdultPax);
 		Adult.selectByValue(ADTcount);
