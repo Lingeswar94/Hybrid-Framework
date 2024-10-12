@@ -43,10 +43,6 @@ public class FlightresultTC extends Commondetails {
 		}
 	}
 	
-	public void ReturnFlightresult() {
-		
-		
-		
-	}
+
 	
 }

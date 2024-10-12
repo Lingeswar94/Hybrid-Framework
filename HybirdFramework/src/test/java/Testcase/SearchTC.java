@@ -18,6 +18,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentReporter;
 
 import Commonfunction.Commondetails;
+import Commonfunction.Constant;
 import Commonfunction.Exceldata;
 import TestPage.SearchPage;
 
@@ -33,30 +34,27 @@ public class SearchTC extends Commondetails {
 
 		// test = extentReports.createTest("Verify to SearchFlight Page");
 		logger.info("User is on SearchPage ");
-		String JourneyTrip = System.getProperty("JourneyTrip");
-		String MonthandYear = System.getProperty("MonthandYear");
-		String date = System.getProperty("date");
-		String returnmonth = System.getProperty("returnmonth");
-		String redate = System.getProperty("redate");
-		String Departurecity = System.getProperty("Departurecity");
-		String ArrivalCity = System.getProperty("ArrivalCity");
 		
+		
+	    
 		try {
 			logger.info("User is to select Trip for Journey ");
-			
-			SearchPage.getSearchPage().journeyDateSelection(JourneyTrip, Departurecity, ArrivalCity, MonthandYear, date,
-					returnmonth, redate);
-			
+
+			SearchPage.getSearchPage().journeyDateSelection(Constant.JourneyTrip, Constant.Departurecity, Constant.ArrivalCity, Constant.MonthandYear, Constant.date,
+					Constant.returnmonth, Constant.redate);
+
 			logger.info("User is to select Departurecity ");
 			logger.info("User is to select Arrivalcity ");
 			logger.info("User is to select Date of Travel ");
 			logger.info("User is to select Number of Adult Pax ");
-			SearchPage.getSearchPage().Adultcount(exceldata.getstringdata("Sheet1", 7, 1));
+			// SearchPage.getSearchPage().Adultcount(exceldata.getstringdata("Sheet1", 7, 1));
+			SearchPage.getSearchPage().Adultcount(Constant.ADTcount);
 			logger.info("User is to select Number of Child Pax ");
-			SearchPage.getSearchPage().childpax(exceldata.getstringdata("Sheet1", 8, 1));
+			//SearchPage.getSearchPage().childpax(exceldata.getstringdata("Sheet1", 8, 1));
+			SearchPage.getSearchPage().childpax(Constant.Chcount);
 			logger.info("User is to select Number of Infant Pax ");
-			SearchPage.getSearchPage().infantpax(exceldata.getstringdata("Sheet1", 9, 1));
-
+			//SearchPage.getSearchPage().infantpax(exceldata.getstringdata("Sheet1", 9, 1));
+			SearchPage.getSearchPage().infantpax(Constant.InFcount);
 			SearchPage.getSearchPage().Searchbutton();
 		} catch (Exception e) {
 			logger.error(e);

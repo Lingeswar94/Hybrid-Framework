@@ -134,19 +134,7 @@ public class SearchPage {
 
 	// Method to select the return date
 	public void ReturnDateselection(String returnmonth, String redate) {
-		//WebDriverWait wait = new WebDriverWait(Commondetails.getDriver(), Duration.ofSeconds(10));
-		/*
-		 * while (true) { String returndate =
-		 * Commondetails.getDriver().findElement(By.xpath(
-		 * "//th[@class='datepicker-switch']")).getText(); String[] da1 =
-		 * returndate.split(" "); if (da1[0].equalsIgnoreCase(returnmonth)) { break; }
-		 * else {
-		 * Commondetails.getDriver().findElement(By.xpath("//th[@class='next']")).click(
-		 * ); } } Commondetails.getDriver().findElement(
-		 * By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text(),"
-		 * + redate + ")]")).click(); }
-		 */
-
+	
 	while (true) {
 		String returndate = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']")).getText();
 	String[]da 	=returndate.split(" ");
@@ -164,19 +152,19 @@ public class SearchPage {
 }
 
 	
-	public void Adultcount(String ADTcount) {
+	public void Adultcount(int ADTcount) {
 		Select Adult = new Select(AdultPax);
-		Adult.selectByValue(ADTcount);
+		Adult.selectByIndex(ADTcount);
 	}
 
-	public void childpax(String Chcount) {
+	public void childpax(int Chcount) {
 		Select selectChild = new Select(Child);
-		selectChild.selectByValue(Chcount);
+		selectChild.selectByIndex(Chcount);
 	}
 
-	public void infantpax(String InFcount) {
+	public void infantpax(int InFcount) {
 		Select selectInfant = new Select(Infant);
-		selectInfant.selectByValue(InFcount);
+		selectInfant.selectByIndex(InFcount);
 	}
 
 	public void Searchbutton() {

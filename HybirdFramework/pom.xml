@@ -20,6 +20,9 @@
 		<Departurecity>BNE</Departurecity>
 		<ArrivalCity>DBO</ArrivalCity>
 		<JourneyTrip>2</JourneyTrip>
+		<Adultcount>1</Adultcount>
+		<Childcount>1</Childcount>
+		<Infantcount>1</Infantcount>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -112,6 +115,9 @@
 						<Departurecity>${Departurecity}</Departurecity>
 						<ArrivalCity>${ArrivalCity}</ArrivalCity>
 						<JourneyTrip>${JourneyTrip}</JourneyTrip>
+						<Adultcount>${Adultcount}</Adultcount>
+						<Childcount>${Childcount}</Childcount>
+						<Infantcount>${Infantcount}</Infantcount>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
