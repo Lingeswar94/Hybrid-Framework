@@ -68,7 +68,7 @@ public class PassengerTC extends Commondetails {
 					// Fill adult passenger details
 					if (currentADT == 0) {
 						PassengerPage.getPassengerPage().fillPassengerDetails(index,
-								exceldata.getstringdata("Paxdetails", 1, 1),Constant.Adultpax,
+								exceldata.getstringdata("Paxdetails", 1, 1),Constant.AdultPax,
 								exceldata.getstringdata("Paxdetails", 3, 1),
 								exceldata.getstringdata("Paxdetails", 4, 1),
 								exceldata.getstringdata("Paxdetails", 5, 1),
