@@ -25,7 +25,7 @@ import TestPage.PassengerPage;
 public class PassengerTC extends Commondetails {
 	Exceldata exceldata = new Exceldata();
 	Logger logger = Logger.getLogger(PassengerTC.class);
-
+	
 	@Test
 	public void Passengerdetails() throws IOException {
 
@@ -33,7 +33,7 @@ public class PassengerTC extends Commondetails {
 		// exceldata.getstringdata("Paxdetails", 2, 1)
 		logger.info("User is on Passenger page");
 
-		// String AdultPax = properties.getProperty("AdultPax");
+		
 
 		try {
 			pax(Constant.ADTcount, Constant.Chcount, Constant.InFcount);
@@ -54,7 +54,7 @@ public class PassengerTC extends Commondetails {
 	public void pax(int ADTcount, int Chcount, int InFcount) {
 		int adult = ADTcount + 1;
 		int totalPassengers = adult + Chcount + InFcount;
-
+		//String Adultpax = Commondetails.properties.getProperty("Adultpax");
 		System.out.println("Total passengers: " + totalPassengers);
 		System.out.println("ADTCount: " + (ADTcount + 1) + ", Chcount: " + Chcount + ", InFcount: " + InFcount);
 
@@ -68,7 +68,7 @@ public class PassengerTC extends Commondetails {
 					// Fill adult passenger details
 					if (currentADT == 0) {
 						PassengerPage.getPassengerPage().fillPassengerDetails(index,
-								exceldata.getstringdata("Paxdetails", 1, 1), Constant.Adultpax,
+								exceldata.getstringdata("Paxdetails", 1, 1),Constant.Adultpax,
 								exceldata.getstringdata("Paxdetails", 3, 1),
 								exceldata.getstringdata("Paxdetails", 4, 1),
 								exceldata.getstringdata("Paxdetails", 5, 1),

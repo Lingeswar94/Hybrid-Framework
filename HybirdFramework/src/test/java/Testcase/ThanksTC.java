@@ -22,7 +22,7 @@ public class ThanksTC extends Commondetails {
 		try {
 			ThanksPage.getThanksPage().exit();
 			ThanksPage.getThanksPage().getPNR();
-			logger.info(logger);
+			//logger.info(logger);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
