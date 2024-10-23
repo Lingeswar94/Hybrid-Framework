@@ -51,7 +51,7 @@ public class Commondetails {
 	public static Exceldata exceldata;
 	
 	Logger logger = Logger.getLogger(Commondetails.class);
-	public Properties loadbrowser() {
+	public  Properties loadbrowser() {
 		FileInputStream fileInputStream = null;
 		try {
 			fileInputStream = new FileInputStream("./Config/config.properties");
