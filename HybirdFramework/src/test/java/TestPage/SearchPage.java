@@ -119,8 +119,7 @@ public class SearchPage {
 	public void DateSelection(String MonthandYear, String date) {
 		WebDriverWait wait = new WebDriverWait(Commondetails.getDriver(), Duration.ofSeconds(10));
 		while (true) {
-			String Daytext = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']"))
-					.getText();
+			String Daytext = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']")).getText();
 			String[] da = Daytext.split(" ");
 			if (da[0].equalsIgnoreCase(MonthandYear)) {
 				break;
@@ -135,11 +134,8 @@ public class SearchPage {
 
 	// Method to select the return date
 	public void ReturnDateselection(String returnmonth, String redate) {
-		// WebDriverWait wait = new WebDriverWait(Commondetails.getDriver(),
-		// Duration.ofSeconds(10));
 		while (true) {
-			String returndate = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']"))
-					.getText();
+			String returndate = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']")).getText();
 			String[] da = returndate.split(" ");
 
 			if (da[0].equalsIgnoreCase(returnmonth)) {
@@ -148,18 +144,8 @@ public class SearchPage {
 				Commondetails.getDriver().findElement(By.xpath("//th[@class='next']")).click();
 			}
 		}
-
-		/*
-		 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-		 * "//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate
-		 * + ")]"))).click();
-		 */
-
-		Commondetails.getDriver()
-				.findElement(
-						By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate + ")]"))
-				.click();
-
+		Commondetails.getDriver().findElement(
+				By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate + ")]")).click();
 	}
 
 	public void Adultcount(int ADTcount) {
