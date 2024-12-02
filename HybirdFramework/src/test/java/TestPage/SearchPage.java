@@ -19,9 +19,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SearchPage {
 
-	
-	Logger logger= Logger.getLogger(SearchPage.class);
-	
+	Logger logger = Logger.getLogger(SearchPage.class);
+
 	private static SearchPage searchPage;
 
 	private SearchPage() {
@@ -57,8 +56,9 @@ public class SearchPage {
 	@FindBy(xpath = "//input[@id='btnminiSearch']")
 	private WebElement searchagin;
 
-	public void journeyDateSelection(String value,String departurecity,String arrivalcity ,String Monthandyear, String date,String returnmonth, String redate  ) {
-	
+	public void journeyDateSelection(String value, String departurecity, String arrivalcity, String Monthandyear,
+			String date, String returnmonth, String redate) {
+
 		selectJourneyTypeByValue(value); // "1" for One Way, "2" for Return
 		departureroute(departurecity);
 		arrivalroute(arrivalcity);
@@ -68,7 +68,7 @@ public class SearchPage {
 			// Call DateSelection for one way journey
 			DateSelection(Monthandyear, date);
 		} else if (isReturnSelected()) {
-	
+
 			DateSelection(Monthandyear, date); // Departure date
 			ReturnDateselection(returnmonth, redate); // Return date
 		}
@@ -104,13 +104,13 @@ public class SearchPage {
 	}
 
 	// Method to select the departure city
-	public  void departureroute(String departure) {
+	public void departureroute(String departure) {
 		Select select = new Select(departurecity);
 		select.selectByValue(departure);
 	}
 
 	// Method to select the arrival city
-	public  void arrivalroute(String arrival) {
+	public void arrivalroute(String arrival) {
 		Select select2 = new Select(arrivalcity);
 		select2.selectByValue(arrival);
 	}
@@ -119,7 +119,8 @@ public class SearchPage {
 	public void DateSelection(String MonthandYear, String date) {
 		WebDriverWait wait = new WebDriverWait(Commondetails.getDriver(), Duration.ofSeconds(10));
 		while (true) {
-			String Daytext = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']")).getText();
+			String Daytext = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']"))
+					.getText();
 			String[] da = Daytext.split(" ");
 			if (da[0].equalsIgnoreCase(MonthandYear)) {
 				break;
@@ -134,29 +135,33 @@ public class SearchPage {
 
 	// Method to select the return date
 	public void ReturnDateselection(String returnmonth, String redate) {
-		WebDriverWait wait = new WebDriverWait(Commondetails.getDriver(), Duration.ofSeconds(10));
-	while (true) {
-		String returndate = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']")).getText();
-	String[]da 	=returndate.split(" ");
+		// WebDriverWait wait = new WebDriverWait(Commondetails.getDriver(),
+		// Duration.ofSeconds(10));
+		while (true) {
+			String returndate = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']"))
+					.getText();
+			String[] da = returndate.split(" ");
 
-				if (da[0].equalsIgnoreCase(returnmonth)) {
-			break;
-		} else {
-			Commondetails.getDriver().findElement(By.xpath("//th[@class='next']")).click();
+			if (da[0].equalsIgnoreCase(returnmonth)) {
+				break;
+			} else {
+				Commondetails.getDriver().findElement(By.xpath("//th[@class='next']")).click();
+			}
 		}
-	}
-	
-	wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-					"//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate + ")]"))).click();
-			
-	/*
-	 * Commondetails.getDriver() .findElement(By.xpath(
-	 * "//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate
-	 * + ")]")) .click();
-	 */
-}
 
-	
+		/*
+		 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+		 * "//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate
+		 * + ")]"))).click();
+		 */
+
+		Commondetails.getDriver()
+				.findElement(
+						By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate + ")]"))
+				.click();
+
+	}
+
 	public void Adultcount(int ADTcount) {
 		Select Adult = new Select(AdultPax);
 		Adult.selectByIndex(ADTcount);
