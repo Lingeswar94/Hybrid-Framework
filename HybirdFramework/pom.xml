@@ -11,22 +11,29 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<MainAdultpax>Kumaran</MainAdultpax>
 		<browser>Chrome</browser>
-		<MonthandYear>November</MonthandYear>
-		<date>13</date>
-		<returnmonth>November</returnmonth>
-		<redate>21</redate>
+		<MonthandYear>March</MonthandYear>
+		<date>3</date>
+		<returnmonth>March</returnmonth>
+		<redate>10</redate>
 		<cabinfare>pro</cabinfare>
 		<IBcabinfare>pro</IBcabinfare>
 		<Departurecity>BNE</Departurecity>
 		<ArrivalCity>DBO</ArrivalCity>
-		<JourneyTrip>1</JourneyTrip>
-		<Adultcount>1</Adultcount>
+		<JourneyTrip>2</JourneyTrip>
+		<Adultcount>0</Adultcount>
 		<Childcount>1</Childcount>
 		<Infantcount>1</Infantcount>
-		<isReturnTrip>false</isReturnTrip>
-		<addBaggage>false</addBaggage>
-		<addDepartureBaggage>false</addDepartureBaggage>
-		<addReturnBaggage>false</addReturnBaggage>
+		<isReturnTrip>true</isReturnTrip>
+		<addSeat>true</addSeat>
+		<addDepartureSeat>true</addDepartureSeat>
+		<addReturnSeat>false</addReturnSeat>
+		<OBMainseat>4A</OBMainseat>
+		<OBChildseat>4B</OBChildseat>
+		<IBMainseat>4A</IBMainseat>
+		<IBChildseat>4B</IBChildseat>
+		<addBaggage>true</addBaggage>
+		<addDepartureBaggage>true</addDepartureBaggage>
+		<addReturnBaggage>true</addReturnBaggage>
 		<Baggagename>+ 1 Additional 15Kg Piece - Max 15Kg (33.00 AUD)</Baggagename>
 	</properties>
 	<dependencies>
@@ -124,6 +131,13 @@
 						<Childcount>${Childcount}</Childcount>
 						<Infantcount>${Infantcount}</Infantcount>
 						<isReturnTrip>${isReturnTrip}</isReturnTrip>
+						<addSeat>${addSeat}</addSeat>
+						<addDepartureSeat>${addDepartureSeat}</addDepartureSeat>
+						<addReturnSeat>${addReturnSeat}</addReturnSeat>
+						<OBMainseat>${OBMainseat}</OBMainseat>
+						<OBChildseat>${OBChildseat}</OBChildseat>
+						<IBMainseat>${IBMainseat}</IBMainseat>
+						<IBChildseat>${IBChildseat}</IBChildseat>
 						<addBaggage>${addBaggage}</addBaggage>
 						<addDepartureBaggage>${addDepartureBaggage}</addDepartureBaggage>
 						<addReturnBaggage>${addReturnBaggage}</addReturnBaggage>

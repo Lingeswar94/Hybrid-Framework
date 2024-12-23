@@ -90,6 +90,7 @@ public class SearchPage {
 			System.out.println("Invalid value for journey type.");
 		}
 	}
+	
 
 	// Method to check if "One Way" is selected
 	public boolean isOneWaySelected() {
