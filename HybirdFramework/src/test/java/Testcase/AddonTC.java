@@ -40,7 +40,7 @@ public class AddonTC extends Commondetails {
 			logger.error(e.getMessage());
 		}
 		try {
-		//	AddonPage.getAddonPage().Baggagecontine.click();
+			AddonPage.getAddonPage().Baggagecontine.click();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
