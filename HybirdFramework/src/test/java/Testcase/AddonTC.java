@@ -51,27 +51,28 @@ public class AddonTC extends Commondetails {
 			String IBMainseat, String IBAdultseat, String IBChildseat) {
 // Check if seat selection is enabled
 		if (!addSeat) {
-			System.out.println("Seat is not selected for this booking");
+			logger.info("Seat is not selected for this booking");
 			return;
 		}
 
 // Click on Seat Selection
 		AddonPage.getAddonPage().Seatselection.click();
-		System.out.println("Seat" + OBMainseat);
-		System.out.println("Seat" + OBChildseat);
+		//System.out.println("Seat" + OBMainseat);
+		//System.out.println("Seat" + OBChildseat);
 // Departure Seat Selection
 		if (addDepartureSeat) {
 			AddonPage.getAddonPage().OBselectSeats(ADTcount, Chcount, OBMainseat, OBAdultseat, OBChildseat);
 		} else {
-			System.out.println("Departure Seat is not selected");
+			logger.info("Departure Seat is not selected");
 		}
 
 // Return Seat Selection (if applicable)
 		if (isReturnTrip && addReturnSeat) {
 			AddonPage.getAddonPage().IBselectSeats(ADTcount, Chcount, IBMainseat, IBAdultseat, IBChildseat);
 		} else {
-			System.out.println("Arrival Seat is not selected");
+			logger.info("Arrival Seat is not selected");
 		}
+		AddonPage.getAddonPage().Seatselection.click();
 	}
 
 	public void selectBaggage(int ADTcount, int Chcount, boolean isReturnTrip, boolean addBaggage,

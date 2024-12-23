@@ -23,17 +23,17 @@
 		<Adultcount>0</Adultcount>
 		<Childcount>1</Childcount>
 		<Infantcount>1</Infantcount>
-		<isReturnTrip>true</isReturnTrip>
-		<addSeat>true</addSeat>
-		<addDepartureSeat>true</addDepartureSeat>
+		<isReturnTrip>false</isReturnTrip>
+		<addSeat>false</addSeat>
+		<addDepartureSeat>false</addDepartureSeat>
 		<addReturnSeat>false</addReturnSeat>
-		<OBMainseat>4A</OBMainseat>
-		<OBChildseat>4B</OBChildseat>
-		<IBMainseat>4A</IBMainseat>
-		<IBChildseat>4B</IBChildseat>
-		<addBaggage>true</addBaggage>
-		<addDepartureBaggage>true</addDepartureBaggage>
-		<addReturnBaggage>true</addReturnBaggage>
+		<OBMainseat>5A</OBMainseat>
+		<OBChildseat>5B</OBChildseat>
+		<IBMainseat>5A</IBMainseat>
+		<IBChildseat>5B</IBChildseat>
+		<addBaggage>false</addBaggage>
+		<addDepartureBaggage>false</addDepartureBaggage>
+		<addReturnBaggage>false</addReturnBaggage>
 		<Baggagename>+ 1 Additional 15Kg Piece - Max 15Kg (33.00 AUD)</Baggagename>
 	</properties>
 	<dependencies>
