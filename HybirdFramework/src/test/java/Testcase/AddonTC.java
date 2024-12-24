@@ -21,8 +21,7 @@ public class AddonTC extends Commondetails {
 		logger.info("User is on Addon page");
 
 		try {
-			// OBseatSelection(ADTcount, Chcount, isReturnSelected(), isOneWaySelected(),
-			// isOneWaySelected(), isReturnSelected(), addd, addd, addd, addd, addd, addd)
+			
 			seatSelection(Constant.ADTcount, Constant.Chcount, Constant.isReturnTrip, Constant.addSeat,
 					Constant.addDepartureSeat, Constant.addReturnSeat, Constant.OBMainseat, null, Constant.OBChildseat,
 					Constant.IBMainseat, null, Constant.IBChildseat);
@@ -31,8 +30,6 @@ public class AddonTC extends Commondetails {
 		}
 
 		try {
-			// AddonPage.getAddonPage().AddBaggages();
-			// AddonPage.getAddonPage().AddonContinuebutton();
 			selectBaggage(Constant.ADTcount, Constant.Chcount, Constant.isReturnTrip, Constant.addBaggage,
 					Constant.addDepartureBaggage, Constant.addReturnBaggage, Constant.Baggagename);
 

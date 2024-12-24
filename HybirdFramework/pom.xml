@@ -11,24 +11,24 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<MainAdultpax>Kumaran</MainAdultpax>
 		<browser>Chrome</browser>
-		<MonthandYear>March</MonthandYear>
+		<MonthandYear>February</MonthandYear>
 		<date>3</date>
-		<returnmonth>March</returnmonth>
+		<returnmonth>February</returnmonth>
 		<redate>10</redate>
 		<cabinfare>pro</cabinfare>
 		<IBcabinfare>pro</IBcabinfare>
 		<Departurecity>BNE</Departurecity>
-		<ArrivalCity>DBO</ArrivalCity>
+		<ArrivalCity>BDB</ArrivalCity>
 		<JourneyTrip>2</JourneyTrip>
 		<Adultcount>0</Adultcount>
 		<Childcount>1</Childcount>
-		<Infantcount>1</Infantcount>
+		<Infantcount>0</Infantcount>
 		<isReturnTrip>false</isReturnTrip>
-		<addSeat>false</addSeat>
-		<addDepartureSeat>false</addDepartureSeat>
+		<addSeat>true</addSeat>
+		<addDepartureSeat>true</addDepartureSeat>
 		<addReturnSeat>false</addReturnSeat>
-		<OBMainseat>5A</OBMainseat>
-		<OBChildseat>5B</OBChildseat>
+		<OBMainseat>7A</OBMainseat>
+		<OBChildseat>7B</OBChildseat>
 		<IBMainseat>5A</IBMainseat>
 		<IBChildseat>5B</IBChildseat>
 		<addBaggage>false</addBaggage>

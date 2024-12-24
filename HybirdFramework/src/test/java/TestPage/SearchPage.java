@@ -83,11 +83,11 @@ public class SearchPage {
 		journeyTypeRadioButton.click();
 		// Debugging: Print which option was selected
 		if (value.equals("1")) {
-			System.out.println("Selected: One Way");
+			logger.info("Selected: One Way");
 		} else if (value.equals("2")) {
-			System.out.println("Selected: Return");
+			logger.info("Selected: Return");
 		} else {
-			System.out.println("Invalid value for journey type.");
+			logger.info("Invalid value for journey type.");
 		}
 	}
 	
@@ -129,8 +129,9 @@ public class SearchPage {
 				wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//th[@class='next']")));
 			}
 		}
-		wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + date + ")]"))).click();
+		WebElement dateElement = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[not(contains(@class, 'disabled')) and text()='" + date + "']")));
+		dateElement.click();
 	}
 
 	// Method to select the return date
