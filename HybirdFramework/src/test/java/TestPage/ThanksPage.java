@@ -1,9 +1,12 @@
 package TestPage;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import Commonfunction.Commondetails;
 
 public class ThanksPage {
 
@@ -41,4 +44,18 @@ private	static ThanksPage thanksPage;
 	String BookingPNR	=PNR.getText();
 	logger.info("Booking PNR"+BookingPNR);
 	}
+	
+	public void getsimulation() {
+		
+	WebElement simulationtext	=Commondetails.getDriver().findElement(By.linkText("/Redirectlink.aspx"));
+	String text=simulationtext.getText();
+	//String simulationtext	=Commondetails.getDriver().getTitle();
+		if(text.equalsIgnoreCase("/Redirectlink.aspx")) {
+			simulation.click();
+			exit();
+		}else {
+			exit();
+		}
+	}
+	
 }

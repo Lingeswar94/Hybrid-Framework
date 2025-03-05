@@ -9,23 +9,23 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<MainAdultpax>Kumaran</MainAdultpax>
+		<MainAdultpax>TamilKumaran</MainAdultpax>
 		<browser>Chrome</browser>
-		<MonthandYear>February</MonthandYear>
-		<date>3</date>
+		<MonthandYear>March</MonthandYear>
+		<date>27</date>
 		<returnmonth>February</returnmonth>
 		<redate>10</redate>
 		<cabinfare>pro</cabinfare>
 		<IBcabinfare>pro</IBcabinfare>
 		<Departurecity>BNE</Departurecity>
-		<ArrivalCity>BDB</ArrivalCity>
-		<JourneyTrip>2</JourneyTrip>
+		<ArrivalCity>ARM</ArrivalCity>
+		<JourneyTrip>1</JourneyTrip>
 		<Adultcount>0</Adultcount>
-		<Childcount>1</Childcount>
+		<Childcount>0</Childcount>
 		<Infantcount>0</Infantcount>
 		<isReturnTrip>false</isReturnTrip>
-		<addSeat>true</addSeat>
-		<addDepartureSeat>true</addDepartureSeat>
+		<addSeat>false</addSeat>
+		<addDepartureSeat>false</addDepartureSeat>
 		<addReturnSeat>false</addReturnSeat>
 		<OBMainseat>7A</OBMainseat>
 		<OBChildseat>7B</OBChildseat>
