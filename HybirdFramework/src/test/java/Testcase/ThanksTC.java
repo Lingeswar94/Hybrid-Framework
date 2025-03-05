@@ -20,7 +20,8 @@ public class ThanksTC extends Commondetails {
 		
 		logger.info("User is on Thanks page");
 		try {
-			ThanksPage.getThanksPage().exit();
+			ThanksPage.getThanksPage().getsimulation();
+			//ThanksPage.getThanksPage().exit();
 			ThanksPage.getThanksPage().getPNR();
 			//logger.info(logger);
 		} catch (Exception e) {
