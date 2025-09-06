@@ -9,16 +9,16 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<MainAdultpax>TamilKumaran</MainAdultpax>
+		<MainAdultpax>Lingu</MainAdultpax>
 		<browser>Chrome</browser>
-		<MonthandYear>March</MonthandYear>
-		<date>27</date>
-		<returnmonth>February</returnmonth>
-		<redate>10</redate>
+		<MonthandYear>September</MonthandYear>
+		<date>25</date>
+		<returnmonth>July</returnmonth>
+		<redate>20</redate>
 		<cabinfare>pro</cabinfare>
 		<IBcabinfare>pro</IBcabinfare>
 		<Departurecity>BNE</Departurecity>
-		<ArrivalCity>ARM</ArrivalCity>
+		<ArrivalCity>BDB</ArrivalCity>
 		<JourneyTrip>1</JourneyTrip>
 		<Adultcount>0</Adultcount>
 		<Childcount>0</Childcount>

@@ -24,43 +24,46 @@ public class FlightResultPage {
 
 	@FindBy(xpath = "//div[@id='divOBFlightResults']/div/div/ul/li")
 	private List<WebElement> OBFareselection;
-	
-	@FindBy(xpath="//div[@id='divIBFlightResults']/div/div/ul/li")
-	private List<WebElement>IBFareselection;
+
+	@FindBy(xpath = "//div[@id='divIBFlightResults']/div/div/ul/li")
+	private List<WebElement> IBFareselection;
 
 	@FindBy(xpath = "//*[@id='btnContinue']")
 	private WebElement flightcontinue;
 
-	
-	public void Fareselecting(String OBfareClass, String IBfareClass ) {
+	public void Fareselecting(String OBfareClass, String IBfareClass) {
 
-	    // Outbound flight selection
-	    selectFare(OBFareselection, OBfareClass);
+		// Outbound flight selection
+		if (true) {
+			selectFare(OBFareselection, OBfareClass);
 
-	    // If it's a return trip, select fare for inbound flight as well
-	    if (!IBFareselection.isEmpty()) {
-	        selectFare(IBFareselection, IBfareClass);
-	    }
+		}
+
+		// If it's a return trip, select fare for inbound flight as well
+		if (!IBFareselection.isEmpty()) {
+			selectFare(IBFareselection, IBfareClass);
+		}
 	}
 
 	public void selectFare(List<WebElement> flightResults, String fareClass) {
-	    int flightCount = flightResults.size();
-	    boolean fareFound = false;
+		int flightCount = flightResults.size();
+		boolean fareFound = false;
 
-	    for (int i = 0; i < flightCount &&!fareFound;  i++) {
-	        WebElement fare = flightResults.get(i);
-	        String fareClassAttr = fare.getAttribute("class");
-	        String[] cabin = fareClassAttr.split(" ");
+		for (int i = 0; i < flightCount && !fareFound; i++) {
+			WebElement fare = flightResults.get(i);
+			String fareClassAttr = fare.getAttribute("class");
+			String[] cabin = fareClassAttr.split(" ");
 
-	        if (cabin[0].equalsIgnoreCase(fareClass)) {
-	            fare.click();
-	            fareFound = true;
-	        }
-	    }
+			if (cabin[0].equalsIgnoreCase(fareClass)) {
+				fare.click();
+				fareFound = true;
 
-	    if (!fareFound) {
-	        System.out.println("Fare class not found: " + fareClass);
-	    }
+			}
+		}
+
+		if (!fareFound) {
+			System.out.println("Fare class not found: " + fareClass);
+		}
 	}
 
 	public void FlightContiune() {

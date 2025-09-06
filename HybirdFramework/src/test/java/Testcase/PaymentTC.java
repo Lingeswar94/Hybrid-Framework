@@ -1,9 +1,12 @@
 package Testcase;
 
 import java.io.IOException;
+import java.time.Duration;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -39,6 +42,7 @@ public class PaymentTC extends Commondetails {
 					exceldata.getbillingdata("Payment", 8, 1), exceldata.getbillingdata("Payment", 9, 1),
 					exceldata.getbillingdata("Payment", 10, 1));
 			PaymentPage.getPaymentPage().selectCountry(exceldata.getPaymentdata("Payment", 12, 1));
+			
 			PaymentPage.getPaymentPage().checkbox();
 			PaymentPage.getPaymentPage().paymentcontinue();
 		} catch (Exception e) {

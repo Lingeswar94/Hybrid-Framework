@@ -1,10 +1,16 @@
 package TestPage;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Commonfunction.Commondetails;
 
@@ -59,8 +65,11 @@ public class PaymentPage {
 	@FindBy(xpath = "//input[@id='ucPersonalDetails1_txtContactNo']")
 	private WebElement Contact;
 
-	@FindBy(xpath = "//*[@id='chkRules']")
+	@FindBy(xpath = "//span[@class='man_field']")
 	private WebElement rule;
+	
+	@FindBy(xpath = "//input[@id='chkRules']")
+	private WebElement ruleCheckbox;
 
 	@FindBy(xpath = "//input[@id='btnBooking']")
 	private WebElement continuebtn;
@@ -102,9 +111,12 @@ public class PaymentPage {
 	}
 
 	public void checkbox() {
-		Actions actions = new Actions(Commondetails.getDriver());
-		actions.moveToElement(rule);
-		actions.click().build().perform();
+		
+		((JavascriptExecutor) Commondetails.getDriver()).executeScript("arguments[0].click();", ruleCheckbox);
+		
+		//Actions actions=new Actions(Commondetails.getDriver());
+		//actions.moveToElement(paymentPage.ruleCheckbox);
+		//actions.click().build().perform();
 	}
 
 	public void paymentcontinue() {
