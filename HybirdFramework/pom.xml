@@ -12,14 +12,14 @@
 		<MainAdultpax>Lingu</MainAdultpax>
 		<browser>Chrome</browser>
 		<MonthandYear>September</MonthandYear>
-		<date>25</date>
-		<returnmonth>July</returnmonth>
-		<redate>20</redate>
+		<date>23</date>
+		<returnmonth>September</returnmonth>
+		<redate>26</redate>
 		<cabinfare>pro</cabinfare>
 		<IBcabinfare>pro</IBcabinfare>
 		<Departurecity>BNE</Departurecity>
 		<ArrivalCity>BDB</ArrivalCity>
-		<JourneyTrip>1</JourneyTrip>
+		<JourneyTrip>2</JourneyTrip>
 		<Adultcount>0</Adultcount>
 		<Childcount>0</Childcount>
 		<Infantcount>0</Infantcount>

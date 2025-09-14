@@ -10,23 +10,21 @@ import Commonfunction.Commondetails;
 
 public class ThanksPage {
 
-	
-	Logger logger= Logger.getLogger(ThanksPage.class);
-private	static ThanksPage thanksPage;
-	
+	Logger logger = Logger.getLogger(ThanksPage.class);
+	private static ThanksPage thanksPage;
+
 	private ThanksPage() {
-		
+
 	}
-	
-	
+
 	public static ThanksPage getThanksPage() {
-		
-		if(thanksPage==null) {
-			thanksPage=new ThanksPage();
+
+		if (thanksPage == null) {
+			thanksPage = new ThanksPage();
 		}
 		return thanksPage;
 	}
-	
+
 	@FindBy(xpath = "//input[@id='btnContinue']")
 	private WebElement simulation;
 
@@ -41,21 +39,22 @@ private	static ThanksPage thanksPage;
 	}
 
 	public void getPNR() {
-	String BookingPNR	=PNR.getText();
-	logger.info("Booking PNR"+BookingPNR);
+		String BookingPNR = PNR.getText();
+		// logger.info("Booking PNR"+BookingPNR);
+
 	}
-	
+
 	public void getsimulation() {
-		
-	WebElement simulationtext	=Commondetails.getDriver().findElement(By.linkText("/Redirectlink.aspx"));
-	String text=simulationtext.getText();
-	//String simulationtext	=Commondetails.getDriver().getTitle();
-		if(text.equalsIgnoreCase("/Redirectlink.aspx")) {
+
+		WebElement simulationtext = Commondetails.getDriver().findElement(By.linkText("/Redirectlink.aspx"));
+		String text = simulationtext.getText();
+		// String simulationtext =Commondetails.getDriver().getTitle();
+		if (text.equalsIgnoreCase("/Redirectlink.aspx")) {
 			simulation.click();
 			exit();
-		}else {
+		} else {
 			exit();
 		}
 	}
-	
+
 }

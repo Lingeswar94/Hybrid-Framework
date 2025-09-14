@@ -136,6 +136,7 @@ public class SearchPage {
 
 	// Method to select the return date
 	public void ReturnDateselection(String returnmonth, String redate) {
+		WebDriverWait wait=new WebDriverWait(Commondetails.getDriver(), Duration.ofSeconds(10));
 		while (true) {
 			String returndate = Commondetails.getDriver().findElement(By.xpath("//th[@class='datepicker-switch']")).getText();
 			String[] da = returndate.split(" ");
@@ -144,10 +145,13 @@ public class SearchPage {
 				break;
 			} else {
 				Commondetails.getDriver().findElement(By.xpath("//th[@class='next']")).click();
+				
 			}
 		}
-		Commondetails.getDriver().findElement(
-				By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate + ")]")).click();
+	WebElement redateelemnet =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate + ")]")));
+redateelemnet.click();
+		//Commondetails.getDriver().findElement(
+			//	By.xpath("//div[@class='datepicker-days']/table/tbody/tr/td[contains(text()," + redate + ")]")).click();
 	}
 
 	public void Adultcount(int ADTcount) {
